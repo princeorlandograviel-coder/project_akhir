@@ -1,0 +1,165 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.utama{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(224, 224, 224);
+}
+.kotak{
+    width: 60%;
+    height: 70vh;
+    border-radius: 10px;
+    background-color: white;
+}
+.judul{
+    width: 100%;
+    height: 15vh;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ktk{
+    width: 100%;
+    height: 54vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bks{
+    width: 91%;
+    height: 45vh;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+}
+.ktks{
+    width: 45%;
+    height: 45vh;
+    background-color: rgb(184, 241, 243);
+    border-radius: 15px;
+    box-shadow: 1.5px 1.5px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ktkd{
+    width: 45%;
+    height: 45vh;
+    background-color: rgb(184, 241, 243);
+    border-radius: 15px;
+    display: flex;
+    box-shadow: 1.5px 1.5px 0px 0px;
+    justify-content: center;
+    align-items: center;
+}
+.bksw{
+    width: 90%;
+    height: 35vh;
+}
+.atas{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+}
+.tgh{
+    width: 100%;
+    height: 15vh;
+    font-size: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fungsi{
+    width: 100%;
+    height: 8.5vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.min{
+    width: 25%;
+    height: 6vh;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.min button{
+    width: 80%;
+    height: 6vh;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    font-size: 25px;
+}
+.red{
+    width: 30%;
+    height: 6vh;
+}
+.red button{
+    width: 90%;
+    height: 6vh;
+    background-color: rgb(86, 86, 86);
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    font-size: 15px;
+}
+.plus{
+    width: 25%;
+    height: 6vh;
+}
+.plus button{
+    width: 80%;
+    height: 6vh;
+    background-color: rgb(4, 145, 49);
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    font-size: 25px;
+}
+
+@media(max-width:667px){
+    .utama{
+        width: 100%;
+    }
+    .judul h1{
+        font-size: 20px;
+    }
+    .kotak{
+        width: 100%;
+        height: 100vh;
+    }
+    .ktk{
+        width: 100%;
+        height: 100vh;
+    }
+    .bks{
+        width: 90%;
+        height: 100vh;
+        display: block;
+    }
+    .ktks{
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    .ktkd{
+        width: 100%;
+    }
+    .atas{
+        font-size: 30px;
+    }
+    .tgh{
+        font-size: 80px;
+    }
+}

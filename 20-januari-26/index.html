@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20 Januari 2026</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/invisible-man.png" type="image/x-icon">
+</head>
+<body>
+    <div class="bungkus">
+        <div class="dlm">
+            <div class="judul">
+                <h2>Aplikasi Add Nilai Siswa</h2>
+            </div>
+            <div class="inps">
+                <input type="text" id="nama" placeholder="Input nama siswa" oninput="this.value = this.value.replace(/[0-9]/g, '')" onkeypress="if(event.key==='Enter') tambahSiswa()">
+            </div>
+            <div class="inpd">
+                <input type="number" id="nilai" placeholder="Input nilai siswa" onkeypress="if(event.key==='Enter') tambahSiswa()">
+            </div>
+            <div class="inpt">
+                <input type="number" id="kehadiran" placeholder="Input kehadiran siswa" onkeypress="if(event.key==='Enter') tambahSiswa()">
+            </div>
+            <div class="butt">
+                <button onclick="tambahSiswa()">Input siswa</button>
+            </div>
+
+            <div class="bwhh">
+                <div class="bwh">
+                    <table>
+                        <tr>
+                            <th>Nama</th>
+                            <th>Nilai</th>
+                            <th>Kehadiran</th>
+                            <th>Grade</th>
+                            <th>Status</th>
+                        </tr>
+                        <tbody id="tableSiswa"></tbody>
+                    </table>
+
+                    <div class="rata-rata" id="ratarata"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const dataSiswa = [];
+
+        function tambahSiswa(){
+            const nama = document.getElementById('nama').value;
+            const nilai = parseFloat(document.getElementById('nilai').value);
+            const kehadiran = parseFloat(document.getElementById('kehadiran').value);
+
+            // Validasi form input
+            if (nama === "" || isNaN(nilai) || isNaN(kehadiran)){
+                alert('Semua form harus terisi');
+                return;
+            }
+
+            // Validasi form jika menginput kurang dari 0
+            if (nilai < 0 || nilai > 100 || kehadiran < 0 || kehadiran > 100){
+                alert('Nilai dan kehadiran harus 0 s/d 100');
+                return;
+            }
+
+            let grade = "";
+            if (nilai >= 85){
+                grade = "A"; 
+            }else if(nilai >= 75){
+                grade = "B"
+            }else if(nilai >= 60){
+                grade = "C"
+            }else{
+                grade = "D"
+            }
+
+            let status = "";
+            if(nilai >= 75 && kehadiran >= 80 ){
+                status = "Lulus";
+            }else{
+                status = "Tidak Lulus";
+            }
+
+            // Object siswa
+            const siswa = {
+                nama,
+                nilai,
+                kehadiran,
+                grade,
+                status
+            };
+
+            dataSiswa.push(siswa);
+            tampilkanSiswa();
+            hitungRataRata();
+
+            // Reset Form
+            document.getElementById('nama').value = "";
+            document.getElementById('nilai').value = "";
+            document.getElementById('kehadiran').value = "";
+        }
+
+        function tampilkanSiswa(){
+            const tabel = document.getElementById('tableSiswa');
+            tabel.innerHTML = "";
+
+            dataSiswa.forEach(siswa => {
+                const row = `
+                    <tr>
+                        <td>${siswa.nama}</td>
+                        <td>${siswa.nilai}</td>
+                        <td>${siswa.kehadiran}</td>
+                        <td>${siswa.grade}</td>
+                        <td>${siswa.status}</td>
+                    </tr>
+                `;
+                tabel.innerHTML += row;
+            });
+        }
+
+        function hitungRataRata(){
+            let total = 0;
+
+            dataSiswa.forEach(siswa => {
+                total += siswa.nilai;
+            });
+
+            const rataRata = total / dataSiswa.length
+            document.getElementById('ratarata').innerText = `
+                Rata-rata Nilai kelas : ${rataRata.toFixed(2)}
+            `
+        }
+    </script>
+</body>
+</html>

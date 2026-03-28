@@ -1,0 +1,164 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.utama{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(233, 233, 233);
+    align-items: center;
+}
+.kotak{
+    width: 60%;
+    height: 70vh;
+    background-color: rgb(189, 187, 187);
+    box-shadow: 2px 2px 4px 1px rgb(114, 114, 114);
+    border-radius: 10px;
+}
+.atas{
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tgh{
+    width: 30%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tgh input{
+    padding: 15px;
+    width: 380%;
+    border: none;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.todos{
+    list-style: none;
+    width: 93%;
+    margin-top : 25px;
+    height: 28vh;
+    text-align: center;
+}
+.bwh{
+    width: 93%;
+    margin-left: 22px ;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgb(255, 255, 255);
+    border-style: dotted;
+    overflow: scroll;
+}
+.bwh::-webkit-scrollbar{
+    display: none;
+}
+.todos li.completed{
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.bwah{
+    width: 100%;
+    height: 18vh;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    align-items: center;
+}
+.bwah small{
+    font-size: 20px;
+    font-weight: bold;
+}
+.knan{
+    width: 45%;
+    height: 10vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: background 0.3s, transform 0.2s;
+}
+.kiri{
+    width: 45%;
+    height: 10vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: background 0.3s, transform 0.2s;
+}
+.kiri:hover{
+    background-color: black;
+    color: white;
+}
+.knan:hover{
+    background-color: black;
+    color: white;
+}
+
+/* Responsive for iPhone SE and small devices */
+@media (max-width: 500px) {
+    .kotak {
+        width: 90%; /* Mengambil lebih banyak ruang di layar kecil */
+        height: auto; /* Biarkan tinggi menyesuaikan konten */
+        padding-bottom: 20px;
+        min-height: 80vh;
+    }
+
+    .tgh {
+        width: 100%; /* Lebarkan kontainer form */
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .tgh input {
+        width: 100%; /* Gunakan 100% dari kontainer .tgh */
+        box-sizing: border-box;
+    }
+
+    .bwh {
+        width: 85%;
+        margin: 10px auto;
+        height: 40vh; /* Memberi ruang lebih besar untuk list */
+    }
+
+    .bwah {
+        flex-direction: column; /* Tumpuk instruksi secara vertikal */
+        height: auto;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .knan, .kiri {
+        width: 90%; /* Tombol instruksi melebar penuh */
+        height: 60px;
+    }
+
+    .bwah small {
+        font-size: 14px; /* Kecilkan teks agar tidak memenuhi kotak */
+        text-align: center;
+    }
+    
+    .todos li {
+        padding: 10px;
+        font-size: 16px;
+        border-bottom: 1px solid #ddd;
+    }
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 Nov</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/invisible-man.png" type="image/x-icon">
+</head>
+<body>
+    <div class="judul">
+        <h1>Password Generator</h1>
+    </div>
+    <div class="bks">
+        <div class="dlm">
+            <div class="kotak1">
+                <div class="ats">
+                    <label for="">Password Length : </label><br>
+                    <input type="number" id="len" value="12" min="6"><br>
+                </div>
+                <div class="ktks"><hr>
+                    <div class="a">
+                        <label for="">Include Uppercase</label>
+                        <input type="checkbox" id="upper" checked><br>
+                    </div><hr>
+                    <div class="a">
+                        <label for="">Include Number</label>
+                        <input type="checkbox" id="nums" checked><br>
+                    </div><hr>
+                    <div class="a">
+                        <label for="">Include Characters</label>
+                        <input type="checkbox" id="special" checked><br><br>
+                    </div><hr>
+                </div>
+
+                <div class="tgh">
+                    <div class="s">
+                        <button onclick="generate()">Generate Password</button><br><br>
+                    </div>
+                    <div class="d"><button onclick="reset()">Reset</button></div>
+                </div>
+            </div>
+            <div class="kotak2">
+                <div class="output" id="passOut"><p>Your Password Show Here!</p></div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function genPass(len, upper, nums, special){
+            const lower = "abcdefghijklmnopqrstuvwxyz";
+            const upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const numChars = "0123456789";
+            const specialChars = "!!@#$%^&*()=+{}[]:;,./?<>'`~-_\|";
+            let chars = lower;
+
+            if(upper) chars += upperChars;
+            if(nums) chars += numChars;
+            if(special) chars += specialChars;
+
+            let pass = "";
+            for(let i = 0; i < len; i++){
+                const randInt = Math.floor(Math.random() * chars.length);
+                pass += chars[randInt];
+            }
+            return pass;
+        }
+        function generate(){
+            const len = parseInt(document.getElementById("len").value);
+            const upper = document.getElementById("upper").checked;
+            const nums = document.getElementById("nums").checked;
+            const special = document.getElementById("special").checked;
+
+            const pass = genPass(len, upper, nums, special);
+            document.getElementById("passOut").textContent = pass;
+        }
+        function reset(){
+            document.getElementById("len").value = 12;
+            document.getElementById("upper").checked = true;
+            document.getElementById("nums").checked = true;
+            document.getElementById("special").checked = true;
+            document.getElementById("passOut").textContent = "Your Password Has been reset";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify By Prince</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/invisible-man.png" type="image/x-icon">
+</head>
+<body>
+    <div class="utama">
+        <div class="kiri">
+            <div class="dlm">
+                <div class="atas">
+                    <div class="s">
+                        <p>🏠 Home</p>
+                    </div>
+                    <div class="d">
+                        <p>🔍 Browse</p>
+                    </div>
+                    <div class="t">
+                        <p>📻 Radio</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="tgh">
+                    <div class="q">
+                        <p>Playlist</p>
+                    </div>
+                    <div class="nu">
+                        <div class="qw">
+                            <p><ul><li>Blue - Yungkai</li></ul></p>
+                        </div>
+                        <div class="qw">
+                            <p><ul><li>My mom is calling - Hotels ugly </li></ul></p>
+                        </div>
+                        <div class="qw">
+                            <p><ul><li>MCR - Cencer</li></ul></p>
+                        </div>
+                        <div class="qw">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="bwh">
+                    <div class="jdl">
+                        <p>New Playlist</p>
+                    </div>
+                    <div class="ktk">
+
+                    </div>
+                    <div class="welc">
+                        <p>Welcome Prince</p>
+                    </div>
+                    <div class="bulat">
+                        <div class="blt">
+
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    <div class="tengah">
+        <div class="bks">
+            <div class="input">
+                <input type="search" placeholder="Cari Musik">
+            </div>
+            <div class="kotask">
+                <div class="kotwak">
+
+                </div>
+            </div>
+
+        <table>
+            <tr>
+                <th>No</th>
+                <th>Title</th>
+                <th>Artist</th>
+                <th>Album</th>
+                <th>Waktu</th>
+            </tr>
+            <tr onclick="pilihlagu(0)">
+                <td>1</td>
+                <td>Blue</td>
+                <td>Yung kai</td>
+                <td>blue</td>
+                <td>3:41</td>
+            </tr>
+            <tr onclick="pilihlagu(1)">
+                <td>2</td>
+                <td>Shut Up My Moms Calling</td>
+                <td>Hotel Ugly</td>
+                <td>shut up</td>
+                <td>2:45</td>
+            </tr>
+            <tr onclick="pilihlagu(2)">
+                <td>3</td>
+                <td>Seasons</td>
+                <td>wave to earth</td>
+                <td>Summer Flows 0.02</td>
+                <td>4:16</td>
+            </tr>
+            <tr onclick="pilihlagu(3)">
+                <td>4</td>
+                <td>Let Down</td>
+                <td>Radiohead</td>
+                <td>OK Computer 1997</td>
+                <td>5:00</td>
+            </tr>
+            <tr onclick="pilihlagu(4)">
+                <td>5</td>
+                <td>The Lazy Song</td>
+                <td>Brunomars</td>
+                <td>Doo-Wops & Hooligans 2010</td>
+                <td>3:09</td>
+            </tr>
+            <tr onclick="pilihlagu(5)">
+                <td>6</td>
+                <td>Rock That Body</td>
+                <td>The Black Eyed Peas</td>
+                <td>The E.N.D</td>
+                <td>4:29</td>
+            </tr>
+            <tr onclick="pilihlagu(6)">
+                <td>7</td>
+                <td>Breathe</td>
+                <td>Years and Years</td>
+                <td>Take Shelter</td>
+                <td>3:53</td>
+            </tr>
+            <tr onclick="pilihlagu(7)">
+                <td>8</td>
+                <td>Remember you</td>
+                <td>Adventure Time</td>
+                <td>Adventure Time</td>
+                <td>2:38</td>
+            </tr>
+            <tr onclick="pilihlagu(8)">
+                <td>9</td>
+                <td>The Smiths - There Is A Light That Never Goes out</td>
+                <td>The Smiths</td>
+                <td>The Queen Is Dead</td>
+                <td>4:05</td>
+            </tr>
+            <tr onclick="pilihlagu(9)">
+                <td>10</td>
+                <td>Eyes Blue</td>
+                <td>Franz Vasilic - Heather</td>
+                <td>Retrovizor</td>
+                <td>1:52</td>
+            </tr>
+        </table>
+        <div class="controls-container" style="margin-top: 20px; text-align: center;">
+    <audio src="" id="audioPlayer" controls></audio>
+    <div class="btns">
+        <button onclick="prevSong()">⏮ Prev</button>
+        <button onclick="pauseSong()" id="playBtn">⏯ Play/Pause</button>
+        <button onclick="nextSong()">⏭ Next</button>
+        <button onclick="ulangi()">🔁 Repeat</button>
+    </div>
+</div>
+        </div>
+    </div>
+        <div class="kanan">
+            <div class="lirik" id="lirik">
+                Lirik lagu ada disini!
+            </div>
+        </div>
+    </div>
+    <script>
+        const audioPlayer = document.getElementById('audioPlayer');
+        const lirik = document.getElementById('lirik');
+        const btnUlangi = document.querySelector("button[onclick='ulangi()']")
+        let isRepeat = false;
+
+        const lagu = [
+            {
+                src: 'Yung_Kai_-_Blue(impuremusic.com).mp3',
+                lirik: `your morning eyes i could stare like watching stars
+i could walk you by and i will tell without a thought
+you be mine would you mind if i took your hand tonight
+know youre all that i want this life
+i will imagine we fell in love
+i will nap under moonlight skies with you
+the ocean colors on your face
+so let me fly with you
+i will keep it safe so dont you worry a thing
+i will tell you i love you more
+its stuck with you forever so promise you wont let it go
+i will trust the universe will always bring me to you
+i will imagine we fell in love
+i will nap under moonlight skies with you
+i will keep it safe so dont you worry a thing
+i will tell you i love you more
+its stuck with you forever so promise you wont let it go
+i will trust the universe will always bring me to you`
+            },
+            {
+                src: 'Hotel Ugly - Shut Up My Moms Calling (Lyrics).mp3',
+                lirik: `i just want to rewind
+i havent seen you in a long time
+you got me feeling so lonely
+even when you come through
+i can tell that it isnt you
+so baby bring it in closely
+hate the way i love you but youre so sweet
+i always find a way to say the wrong things
+i wish that we were laying in the same sheets
+but lately youve been acting like you hardly know me
+baby come home so baby wont you say somethin
+home
+baby come home so baby wont you say somethin
+home
+baby come home so baby wont you say somethin
+home
+baby come home so baby wont you say somethin
+home
+i just want to rewind
+i havent seen you in a long time
+you got me feeling so lonely
+even when you come through
+i can tell that it isnt you
+so baby bring it in closely
+hate the way i love you but youre so sweet
+i always find a way to say the wrong things
+i wish that we were laying in the same sheets
+but lately youve been acting like you hardly know me
+ive only recently began to fall
+i feel the need to go and waste it all
+i tried to numb away the pain
+i hope someone is watching me watching me watching me
+baby come home so baby wont you say somethin
+home
+baby come home so baby wont you say somethin
+home
+baby come home so baby wont you say somethin
+home
+baby come home so baby wont you say somethin
+home`
+            },
+            {
+                src: 'wave to earth - seasons (Lyrics).mp3',
+                lirik: `i cant be your love  
+look its too trivial for you now  
+oh my lifes fallin apart  
+maybe no one will know if i disappear  
+but ill pray for you all the time  
+if i could be by your side  
+ill give you all my life my seasons  
+i cant be your love  
+cause im afraid ill ruin your life  
+while the leaves withered away  
+and grew again  
+you have gone far away  
+ill be pushing up daisies  
+and bring all the chances to here  
+but ill pray for you all the time  
+if i could be by your side  
+ill give you all my life my seasons  
+by your side ill be your seasons  
+my love
+`
+            },
+            {
+                src : 'Let Down - Radiohead (Lyrics).mp3',
+                lirik : `transport motorways and tramlines  
+starting and then stopping  
+taking off and landing  
+the emptiest of feelings disappointed people  
+clinging onto bottles  
+when it comes its so so disappointing  
+let down and hanging around  
+crushed like a bug in the ground  
+let down and hanging around  
+shell smashed juices flowing  
+wings twitch legs are going  
+dont get sentimental  
+it always ends up drivel  
+one day i am gonna grow wings  
+a chemical reaction  
+hysterical and useless  
+hysterical and  
+let down and hanging around  
+crushed like a bug in the ground  
+let down and hanging around  
+let down again  
+let down again  
+let down again  
+you know you know where you are with  
+you know where you are with  
+floor collapses floating  
+bouncing back and  
+one day i am gonna grow wings  
+a chemical reaction you know where you are  
+hysterical and useless you know where you are  
+hysterical and you know where you are  
+let down and hanging around  
+crushed like a bug in the ground  
+let down and hanging around`
+
+            },
+            {
+                src : 'Bruno Mars - The Lazy Song (Lyrics).mp3',
+                lirik : `today i dont feel like doing anything  
+i just wanna lay in my bed  
+dont feel like picking up my phone  
+so leave a message at the tone  
+cause today i swear im not doing anything uh  
+im gonna kick my feet up then stare at the fan  
+turn the tv on throw my hand in my pants  
+nobodys gon tell me i cant nah  
+ill be lounging on the couch just chilling in my snuggie  
+click to mtv so they can teach me how to dougie  
+cause in my castle im the freaking man  
+oh oh yes i said it ooh ooh  
+i said it i said it cause i can ooh ooh  
+today i dont feel like doing anything  
+i just wanna lay in my bed  
+dont feel like picking up my phone  
+so leave a message at the tone  
+cause today i swear im not doing anything  
+nothing at all  
+whoa ooh whoa ooh ooh  
+nothing at all  
+whoa ooh whoa ooh ooh  
+tomorrow ill wake up do some p90x  
+meet a really nice girl have some really nice sex  
+and shes gonna scream out this is great oh my god this is great  
+yeah i might mess around and get my college degree  
+i bet my old man will be so proud of me  
+but sorry pops youll just have to wait  
+oh oh yes i said it ooh ooh  
+i said it i said it cause i can ooh ooh  
+today i dont feel like doing anything  
+i just wanna lay in my bed  
+dont feel like picking up my phone  
+so leave a message at the tone  
+cause today i swear im not doing anything  
+no i aint gonna comb my hair ooh ooh  
+cause i aint going anywhere  
+no no no no no no no no no  
+ill just strut in my birthday suit ooh ooh  
+and let everything hang loose  
+yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah  
+oh today i dont feel like doing anything  
+i just wanna lay in my bed  
+dont feel like picking up my phone  
+so leave a message at the tone  
+cause today i swear im not doing anything  
+nothing at all  
+whoa ooh whoa ooh ooh  
+nothing at all  
+whoa ooh whoa ooh ooh  
+nothing at all`
+
+            },
+            {
+                src : 'Rock That Body - The Black Eyed Peas (Lyrics).mp3',
+                lirik : `I wanna rock right now
+I wanna, I wanna rock right now
+I wanna, I wanna rock right now, now, now, rock right now
+I wanna, I wanna rock right now
+I wanna, I wanna rock right now
+I wanna, I wanna rock right now
+I wanna da-, I wanna dance in the lights
+I wanna ro-, I wanna rock your body
+I wanna go, I wanna go for a ride
+Hop in the music and rock your body right
+Rock that body, come on, come on, rock that body (rock your body)
+Rock that body, come on, come on, rock that body
+Rock that body, come on, come on, rock that body (rock your body)
+Rock that body, come on, come on, rock that body
+Let me see your body rock
+Shakin' it from the bottom to top
+Freak to what the DJ drop
+We be the ones to make it hot (to make it hot)
+Electric shock, energy like a billion watts
+Space be booming, the speakers pop
+Galactic, call me Mr. Spock
+We bumpin' in your parking lot
+When you're comin' up in the spot
+Don't bring nothin' we call Pink Dot
+'Cause we burnin' around the clock
+Hit the lights and then turn them off
+If you bring that, don't make you stop
+Like the jungle, we run the block
+No one rollin' the way we rock, way we rock
+I wanna, I wanna rock right now
+I wanna, I wanna rock right now
+I wanna, I wanna rock right now
+I wanna da-, I wanna dance in the lights
+I wanna ro-, I wanna rock your body
+I wanna go, I wanna go for a ride
+Hop in the music and rock your body right
+Rock that body, come on, come on, rock that body (rock that body)
+Rock that body, come on, come on, rock that body
+Rock that body, come on, come on, rock that body (rock your body)
+Rock that body, come on, come on, rock that body
+Superfly ladies, all of my superfly ladies
+All of my superfly ladies
+All of my superf-, superfly ladies
+Yeah, you could be big bone, large, you feel like you own
+You could be the model type, skinny with no appetite
+Short stack, black or white
+Long as you do what you like
+Body outta sight, body, body outta sight (yeah)
+She does the two-step and the tongue drop
+She does the cabbage patch and the bus stop
+She like electro (electro), she wrote hip-hop (hip-hop)
+She like the reggae, she feel punk rock (punk rock)
+She love samba and the mambo
+She like to breakdance and calypso (oh)
+Get a lil' crazy, get a lil' stupid
+Get a lil' crazy, crazy, crazy
+I wanna da-, I wanna dance in the lights (I wanna dance in the lights)
+I wanna ro-, I wanna rock your body right (rock your body)
+I wanna go, I wanna go for a ride (you wanna go for a ride)
+Hop in the music and rock your body right
+Rock your body right
+(Sat upright)
+Rock your body right
+Come on, yeah
+Rock that body, come on, come on, rock that body
+Come on, yeah
+Rock that body, come on, come on, rock that body
+Go, oh, oh, oh, oh-oh-oh
+Let's go, oh, oh, oh, oh-oh-oh
+Let's go, oh, oh, oh, oh-oh-oh
+Let's go, oh, oh, oh, oh-oh-oh
+I wanna, I wanna rock right now
+I wanna, I wanna rock- (sat upright)
+I wanna, I wanna rock-
+Let's go, oh, oh, oh, oh-oh-oh
+I wanna, I wanna rock- (sat upright)
+I wanna, I wanna rock-
+Let's go, oh, oh, oh, oh-oh-oh
+Let's go, oh, oh, oh, oh-oh-oh (sat upright)
+I wanna, I wanna rock right now
+I wanna, I wanna rock right now
+I wanna, I wanna rock right now, now, now, rock right now
+I wanna, I wanna rock right now
+I wanna, I wanna rock right now
+I wanna, I wanna rock right now`
+            },
+            {
+                src : 'Years And Years - Breathe (Lyrics)(Olly Alexander).mp3',
+                lirik : `whats that supposed to be about baby  
+go free up your vibe stop acting crazy  
+reminiscing on the good times daily  
+try and pull that got me actin shady  
+whats that supposed to be about baby  
+go free up your vibe stop acting crazy  
+you know i give you that good loving daily  
+try and pull that got me actin shady  
+
+you say you love me say you love me  
+but youre never there for me  
+and youll be crying slowly dying when i decide to leave  
+
+all we do is make up then break up  
+why dont we wake up and see when love hurts it wont work  
+yeah maybe we need some time alone  
+we need to let it breathe  
+
+whats that supposed to be about baby  
+go free up your vibe stop acting crazy  
+reminiscing on the good times daily  
+try and pull that got me actin shady  
+whats that supposed to be about baby  
+go free up your vibe stop acting crazy  
+you know i give you that good loving daily  
+try and pull that got me actin shady  
+
+youre only lonely when your homie aint got a ride or no loot  
+then comes the drama some motha calling claiming shes going out with you  
+
+all we do is make up then break up  
+why dont we wake up and see when love hurts it wont work  
+yeah maybe we need some time alone  
+we need to let it breathe  
+
+we need to let it breathe  
+we need to let it breathe  
+
+you said that you love me that you love me  
+but youre never there for me  
+and youll be crying slowly dying when i decide to leave  
+oh we need to let it breathe`
+
+            },
+            {
+                src : 'Remember You (Original Version).mp3',
+                lirik : `Marceline is it just you and me
+in the wreckage of the world
+That must be so confusing
+for a little girl
+
+And I know youre going
+to need me here with you
+But Im losing myself and Im
+afraid youre gonna lose me too
+
+This magic keeps me alive
+but its making me crazy
+And I need to save you
+but whos going to save me
+Please forgive me for whatever I do
+when I dont remember you
+
+Marceline I can feel myself
+slipping away
+I cant remember what it made me say
+But I remember that I saw you frown
+I swear it wasnt me it was the crown
+
+This magic keeps me alive
+but its making me crazy
+And I need to save you
+but whos going to save me
+Please forgive me for whatever I do
+when I dont remember you
+Please forgive me for whatever I do
+when I dont remember you`
+            },
+            {
+                src : 'The Smiths - There Is A Light That Never Goes Out  Lirik Lagu Terjemahan.mp3',
+                lirik : `Take me out tonight
+Where theres music and theres people who are young and alive
+Driving in your car
+I never never want to go home
+Because I havent got one
+Anymore
+
+Take me out tonight
+Because I want to see people and I want to see life
+Driving in your car
+Oh please dont drop me home
+Because its not my home its their home
+And Im welcome no more
+
+And if a double-decker bus
+Crashes into us
+To die by your side
+Is such a heavenly way to die
+And if a ten-ton truck
+Kills the both of us
+To die by your side
+Well the pleasure the privilege is mine
+
+Take me out tonight
+Take me anywhere I dont care
+I dont care I dont care
+And in the darkened underpass
+I thought Oh God my time has come
+As the sixteen-ton truck
+Comes crushing down
+And I thought Oh God my time has come
+To die by your side
+Oh the pleasure the privilege is mine
+
+And if a double-decker bus
+Crashes into us
+To die by your side
+Is such a heavenly way to die
+And if a ten-ton truck
+Kills the both of us
+To die by your side
+Well the pleasure the privilege is mine
+
+Oh there is a light that never goes out
+There is a light that never goes out`
+            },
+            {
+                src : 'Franz Vasilic - Heather x Eyes Blue (Lyrics).mp3',
+                lirik : `I still remember the third of December
+Me in your sweater you said it looked better
+On me than it did you
+Only if you knew how much I liked you
+
+But I watch your eyes as she
+Walks by what a sight for sore eyes
+Brighter than a blue sky
+Shes got you mesmerized
+While I die
+
+Why would you ever kiss me
+I'm not even half as pretty
+You gave her your sweater
+Its just polyester
+But you like her better
+I wish I were heather
+
+I am a new soul
+I can be cold
+I can be crazy
+I know that I know
+This is how its meant to be
+
+Cause I got eyes blue like the Atlantic
+And Im dancing like its the first day of summer
+Singing the words to a song that nobody knows
+I got eyes blue like the Atlantic
+And Im dancing like its the first day of summer
+Singing the words to a song that nobody knows`
+            }
+            
+        ];
+
+        let laguindex = 0;
+
+        function loadSong(index){
+            laguindex = index;
+            audioPlayer.pause();
+            audioPlayer.src = lagu[index].src;
+            audioPlayer.load();
+            audioPlayer.play();
+            lirik.innerText = lagu[index].lirik;
+        }
+
+        function pauseSong(){
+            if(audioPlayer.paused){
+                audioPlayer.play();
+            }else{
+                audioPlayer.pause();
+            }
+        }
+
+        function stopSong(){
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0;
+        }
+
+        function nextSong(){
+            laguindex = (laguindex + 1) % lagu.length;
+            loadSong(laguindex);
+        }
+
+        function prevSong(){
+            laguindex = (laguindex - 1 + lagu.length) % lagu.length;
+            loadSong(laguindex);
+        }
+
+        function pilihlagu(index){
+            loadSong(index);
+        }
+
+        function ulangi(){
+            isRepeat = !isRepeat;
+            btnUlangi.innerText = isRepeat ? "Repeat : On" : "Repeat : Off";
+        }
+        audioPlayer.addEventListener('ended',function(){
+            if(isRepeat){
+                audioPlayer.currentTime = 0;
+                audioPlayer.play();
+            }else{
+                nextSong();
+            }
+        })
+    </script>
+</body>
+</html>

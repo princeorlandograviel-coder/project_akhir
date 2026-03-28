@@ -1,0 +1,115 @@
+/* ===================================
+   LIGHT MODE SPECIFIC OVERRIDES
+   Hanya override yang benar-benar dibutuhkan
+   di luar yang sudah ditangani CSS variables
+   =================================== */
+
+/* Background body */
+body.light-mode {
+    background-color: #f5f7fa;
+}
+
+/* Navbar background di light mode */
+body.light-mode .atas {
+    box-shadow: 0 2px 20px rgba(37, 99, 235, 0.08);
+}
+
+/* Kanan1 (gambar card about) - selalu putih di kedua mode */
+.kanan1 {
+    background-color: #ffffff !important;
+}
+
+body.light-mode .kanan1 {
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.12);
+}
+
+/* Service cards di light mode */
+body.light-mode .knn2,
+body.light-mode .tgh2,
+body.light-mode .kri2 {
+    box-shadow: 0 3px 12px rgba(37, 99, 235, 0.1);
+}
+
+/* Blog card image area */
+body.light-mode .ats5 {
+    background: linear-gradient(135deg, #dbeafe 0%, #ede9fe 100%);
+}
+
+/* Portfolio card image area */
+body.light-mode .atas4 {
+    background: linear-gradient(135deg, #dbeafe 0%, #ede9fe 100%);
+}
+
+/* Contact form card */
+body.light-mode .kotak6 {
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.1);
+}
+
+/* Logo trusted: di dark mode putih, di light mode jadi abu gelap */
+body.light-mode .logo-putih {
+    filter: brightness(0) saturate(100%) invert(30%) sepia(10%) hue-rotate(200deg);
+    opacity: 0.65;
+}
+
+/* Trusted logos text color */
+body.light-mode .bwah6 {
+    color: var(--text-secondary);
+}
+
+/* Portfolio hover */
+body.light-mode .port a:hover .atas4 {
+    filter: brightness(0.95);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.2);
+}
+
+/* Gradient text untuk heading tertentu */
+body.light-mode .tulisan2 h2,
+body.light-mode .build h2 {
+    background: linear-gradient(120deg, #1e293b 0%, #2563eb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Dark mode: heading tetap putih murni */
+body:not(.light-mode) .tulisan2 h2,
+body:not(.light-mode) .build h2 {
+    background: linear-gradient(120deg, #ffffff 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Dark mode enhancements untuk cards */
+body:not(.light-mode) .knn2,
+body:not(.light-mode) .tgh2,
+body:not(.light-mode) .kri2 {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+body:not(.light-mode) .kotak6 {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+body:not(.light-mode) .ats5 {
+    background: linear-gradient(135deg, rgb(20, 36, 70) 0%, rgb(16, 30, 59) 100%);
+}
+
+body:not(.light-mode) .atas4 {
+    background: linear-gradient(135deg, rgb(20, 36, 70) 0%, rgb(11, 29, 58) 100%);
+}
+
+body:not(.light-mode) .input6 input:focus,
+body:not(.light-mode) .inpu6 input:focus,
+body:not(.light-mode) .prgf textarea:focus {
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25), 0 0 12px rgba(0, 100, 221, 0.2);
+}
+
+body:not(.light-mode) .signup button {
+    background: linear-gradient(135deg, #2563eb 0%, #0063dd 100%);
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.35);
+}
+
+body:not(.light-mode) .fill {
+    box-shadow: 0 0 8px rgba(6, 214, 208, 0.25);
+}

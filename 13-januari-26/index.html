@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Tebak Angka</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/invisible-man.png" type="image/x-icon">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <h2 class="logo">🎯 Tebak Angka</h2>
+            <div class="theme-toggle" id="toggleTheme">☀️</div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <span class="icon">🎮</span>
+                <h1>Tebak Angka</h1>
+            </div>
+
+            <div class="game-section">
+                <div class="hint-box">
+                    <p id="hint">🤔 Tebak angka antara 1-100</p>
+                </div>
+
+                <div class="input-group">
+                    <input type="number" id="numberInput" placeholder="Masukan tebakan Anda" min="1" max="100">
+                    <button id="guessBtn" onclick="cekTebakan()" class="btn-guess">Tebak</button>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="label">Kesempatan</span>
+                        <span class="value" id="attempts">3</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="label">Status</span>
+                        <span class="value" id="status">⏳ Bermain</span>
+                    </div>
+                </div>
+
+                <div class="result-box" id="resultBox">
+                    <div id="resultContent"></div>
+                </div>
+
+                <button id="resetBtn" onclick="resetGame()" class="btn-reset">🔄 Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let secretNumber = 0;
+        let attempts = 3;
+        let gameOver = false;
+
+        // Theme Toggle
+        const toggleTheme = document.getElementById('toggleTheme');
+        const currentTheme = localStorage.getItem('theme') || 'dark-mode';
+        if (currentTheme === 'light-mode') {
+            document.body.classList.add('light-mode');
+            toggleTheme.textContent = '🌙';
+        }
+        
+        toggleTheme.addEventListener('click', function() {
+            document.body.classList.toggle('light-mode');
+            if (document.body.classList.contains('light-mode')) {
+                localStorage.setItem('theme', 'light-mode');
+                toggleTheme.textContent = '🌙';
+            } else {
+                localStorage.setItem('theme', 'dark-mode');
+                toggleTheme.textContent = '☀️';
+            }
+        });
+
+        function mulaiGame() {
+            secretNumber = Math.floor(Math.random() * 100) + 1;
+            console.log('Angka rahasia:', secretNumber);
+        }
+
+        function cekTebakan() {
+            if (gameOver || attempts <= 0) return;
+
+            const input = document.getElementById('numberInput');
+            const tebakan = parseInt(input.value);
+            const resultContent = document.getElementById('resultContent');
+            const hintBox = document.getElementById('hint');
+
+            // Validasi
+            if (isNaN(tebakan) || tebakan < 1 || tebakan > 100) {
+                resultContent.innerHTML = '<span class="error">⚠️ Masukan angka 1-100!</span>';
+                return;
+            }
+
+            attempts--;
+            document.getElementById('attempts').textContent = attempts;
+
+            if (tebakan === secretNumber) {
+                // BENAR
+                resultContent.innerHTML = `<span class="success">✅ BENAR! Angka adalah ${secretNumber}</span>`;
+                hintBox.innerHTML = `🎉 Selamat! Anda menebak dengan ${3 - attempts} percobaan`;
+                document.getElementById('status').textContent = '✅ Menang';
+                gameOver = true;
+                document.getElementById('guessBtn').disabled = true;
+            } else if (tebakan < secretNumber) {
+                // TERLALU KECIL
+                if (attempts > 0) {
+                    resultContent.innerHTML = `<span class="warning">📈 Terlalu kecil! Coba angka lebih besar</span>`;
+                    hintBox.innerHTML = `${tebakan} < ? (Kesempatan: ${attempts})`;
+                } else {
+                    resultContent.innerHTML = `<span class="error">❌ GAME OVER! Angka yang benar: ${secretNumber}</span>`;
+                    hintBox.innerHTML = `😢 Percobaan habis! Angka adalah ${secretNumber}`;
+                    document.getElementById('status').textContent = '❌ Kalah';
+                    gameOver = true;
+                    document.getElementById('guessBtn').disabled = true;
+                }
+            } else {
+                // TERLALU BESAR
+                if (attempts > 0) {
+                    resultContent.innerHTML = `<span class="warning">📉 Terlalu besar! Coba angka lebih kecil</span>`;
+                    hintBox.innerHTML = `${tebakan} > ? (Kesempatan: ${attempts})`;
+                } else {
+                    resultContent.innerHTML = `<span class="error">❌ GAME OVER! Angka yang benar: ${secretNumber}</span>`;
+                    hintBox.innerHTML = `😢 Percobaan habis! Angka adalah ${secretNumber}`;
+                    document.getElementById('status').textContent = '❌ Kalah';
+                    gameOver = true;
+                    document.getElementById('guessBtn').disabled = true;
+                }
+            }
+
+            input.value = '';
+            input.focus();
+        }
+
+        function resetGame() {
+            attempts = 3;
+            gameOver = false;
+            document.getElementById('numberInput').value = '';
+            document.getElementById('resultContent').innerHTML = '';
+            document.getElementById('hint').innerHTML = '🤔 Tebak angka antara 1-100';
+            document.getElementById('attempts').textContent = '3';
+            document.getElementById('status').textContent = '⏳ Bermain';
+            document.getElementById('guessBtn').disabled = false;
+            document.getElementById('numberInput').focus();
+            mulaiGame();
+        }
+
+        // Enter key untuk tebak
+        document.getElementById('numberInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !gameOver && attempts > 0) {
+                cekTebakan();
+            }
+        });
+
+        // Start game
+        mulaiGame();
+    </script>
+</body>
+</html>  

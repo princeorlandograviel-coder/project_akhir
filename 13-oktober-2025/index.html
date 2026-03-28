@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Top Up Pulsa — 13 Oktober 2025</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="brand">📱 TopUp • 13 Okt</div>
+            <div class="actions">
+                <button id="toggleTheme" class="theme-toggle">☀️</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="card">
+            <header class="card-head">
+                <h1>Top Up Pulsa</h1>
+                <p class="muted">Masukkan nomor tujuan, pilih nominal, lalu konfirmasi.</p>
+            </header>
+
+            <div class="form-row">
+                <label for="phone">Nomor HP Tujuan</label>
+                <div class="input-row">
+                    <input id="phone" type="tel" inputmode="numeric" placeholder="Contoh: 0895..." maxlength="15">
+                    <button id="pasteBtn" class="btn small">📋 Paste</button>
+                </div>
+            </div>
+
+            <div id="operatorInfo" class="operator"></div>
+
+            <div id="hargaList" class="harga-list"></div>
+
+            <div class="help">Jika operator tidak terdeteksi, periksa 4 digit awal nomor (contoh: 0895).</div>
+        </section>
+    </main>
+
+    <!-- modal konfirmasi -->
+    <div id="confirmModal" class="modal" aria-hidden="true">
+        <div class="modal-card">
+            <h3 id="modalTitle">Konfirmasi Pembelian</h3>
+            <p id="modalBody"></p>
+            <div class="modal-actions">
+                <button id="cancelPurchase" class="btn muted">Batal</button>
+                <button id="confirmPurchase" class="btn primary">Beli</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast" aria-hidden="true"></div>
+
+    <script>
+        const operatorData = [
+            { name: 'Telkomsel', emoji: '🔥', preFixes: ['0852','0813','0821','0812','0823','0822'], harga: [5000,10000,15000,25000,50000,100000] },
+            { name: 'Indosat', emoji: '💚', preFixes: ['0855','0856','0816','0815'], harga: [5000,10000,15000,25000,50000,100000] },
+            { name: 'Tri', emoji: '🎯', preFixes: ['0897','0898','0896','0895'], harga: [5000,10000,15000,25000,50000,100000] }
+        ];
+
+        const phoneInput = document.getElementById('phone');
+        const operatorInfo = document.getElementById('operatorInfo');
+        const hargaList = document.getElementById('hargaList');
+        const pasteBtn = document.getElementById('pasteBtn');
+
+        const confirmModal = document.getElementById('confirmModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalBody = document.getElementById('modalBody');
+        const cancelPurchase = document.getElementById('cancelPurchase');
+        const confirmPurchase = document.getElementById('confirmPurchase');
+        const toast = document.getElementById('toast');
+
+        const toggleTheme = document.getElementById('toggleTheme');
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') document.body.classList.add('light-mode');
+        toggleTheme.textContent = document.body.classList.contains('light-mode') ? '🌙' : '☀️';
+        toggleTheme.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            const isLight = document.body.classList.contains('light-mode');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            toggleTheme.textContent = isLight ? '🌙' : '☀️';
+        });
+
+        pasteBtn.addEventListener('click', async () => {
+            try {
+                const text = await navigator.clipboard.readText();
+                phoneInput.value = text.replace(/\D/g, '').slice(0,15);
+                phoneInput.dispatchEvent(new Event('input'));
+            } catch (e) {
+                showToast('Tidak bisa akses clipboard');
+            }
+        });
+
+        phoneInput.addEventListener('input', () => {
+            const nomor = phoneInput.value.replace(/\D/g, '').trim();
+            if (nomor.length < 4) { operatorInfo.textContent = ''; hargaList.innerHTML = ''; return; }
+            const prefix = nomor.slice(0,4);
+            let operator = null;
+            for (const op of operatorData) {
+                if (op.preFixes.includes(prefix)) { operator = op; break; }
+            }
+
+            if (operator) {
+                operatorInfo.innerHTML = `<div class="operator-badge">${operator.emoji} <strong>${operator.name}</strong></div>`;
+                hargaList.innerHTML = `<div class="harga-container">${operator.harga.map(h => `<button class="harga-item" data-harga="${h}">Rp ${h.toLocaleString('id-ID')}</button>`).join('')}</div>`;
+                attachHargaHandlers();
+            } else {
+                operatorInfo.innerHTML = `<div class="operator-badge muted">Operator tidak dikenali</div>`;
+                hargaList.innerHTML = '';
+            }
+        });
+
+        function attachHargaHandlers(){
+            const buttons = hargaList.querySelectorAll('.harga-item');
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const harga = parseInt(btn.dataset.harga, 10);
+                    openConfirm(harga);
+                });
+            });
+        }
+
+        function openConfirm(harga){
+            const nomor = phoneInput.value.replace(/\D/g, '').trim();
+            if (!nomor || nomor.length < 9) { showToast('Nomor tidak valid'); return; }
+            modalBody.textContent = `Nomor: ${nomor}\nNominal: Rp ${harga.toLocaleString('id-ID')}`;
+            confirmModal.setAttribute('aria-hidden', 'false');
+            confirmModal.classList.add('open');
+            confirmPurchase.dataset.harga = harga;
+        }
+
+        cancelPurchase.addEventListener('click', closeModal);
+        confirmPurchase.addEventListener('click', () => {
+            const harga = confirmPurchase.dataset.harga;
+            closeModal();
+            showToast(`Pembelian sukses: Rp ${parseInt(harga).toLocaleString('id-ID')}`);
+        });
+
+        function closeModal(){
+            confirmModal.classList.remove('open');
+            confirmModal.setAttribute('aria-hidden', 'true');
+        }
+
+        function showToast(msg){
+            toast.textContent = msg;
+            toast.setAttribute('aria-hidden', 'false');
+            toast.classList.add('show');
+            setTimeout(() => { toast.classList.remove('show'); toast.setAttribute('aria-hidden','true'); }, 2800);
+        }
+
+        phoneInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const first = hargaList.querySelector('.harga-item');
+                if (first) first.click();
+            }
+        });
+    </script>
+</body>
+</html>

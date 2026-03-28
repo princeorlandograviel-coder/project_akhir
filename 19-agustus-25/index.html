@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19 Agustus 2025</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/invisible-man.png" type="image/x-icon">
+</head>
+<body>
+    <div class="utama">
+        <div class="kotak">
+            <div class="dalam">
+                <div class="judul">
+                    <div class="jr">
+                        <h2>Tebak angka By Princee</h2>
+                    </div>
+                </div>
+                <div class="input">
+                    <input type="number" id="angka">
+                </div><br>
+                <div class="tgh">
+                    <div class="kanan">
+                        <div class="jrk">
+                            <button onclick="tebak()" id="tebak">Tebak</button>
+                            <br><br>
+                            <button onclick="mainlg()" id="mainlg">Main lg</button>
+                        </div>
+                    </div>
+                    <div class="kiri">
+                        <div class="jrk">
+                            <p>Hasil : <br><span id="hasil"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+        let komputer = Math.floor(Math.random()*10)+1;
+        function tebak(){
+            let angka = parseFloat(document.getElementById('angka').value);
+            if(komputer === angka){
+            document.getElementById('hasil').innerHTML = `kamu berhasil menebak angkanya : ${komputer}`
+            document.getElementById('tebak').disabled = true;
+            }else if(komputer < angka){
+            document.getElementById('hasil').innerHTML = `angka yang di tebak terlalu besar`
+            }else{
+            document.getElementById('hasil').innerHTML = `angka yang di tebak terlalu kecil`
+            }
+        }
+        function tebak(){
+            let angka = parseFloat(document.getElementById('angka').value);
+            if(komputer === angka){
+            document.getElementById('hasil').innerHTML = `kamu berhasil menebak angkanya : ${komputer}`
+            document.getElementById('tebak').disabled = false;
+            }else if(komputer < angka){
+            document.getElementById('hasil').innerHTML = `angka yang di tebak terlalu besar`
+            document.getElementById('tebak').disabled = false;
+            }else if(komputer < angka){
+            document.getElementById('hasil').innerHTML = `angka yang di tebak terlalu kecil`
+            document.getElementById('tebak').disabled = true;
+            }else if(komputer < angka){
+            document.getElementById('hasil').innerHTML = `angka yang di tebak terlalu kecil`
+            document.getElementById('tebak').disabled = true;
+            }else{
+            document.getElementById('hasil').innerHTML = `angka yang di tebak terlalu kecil`
+            document.getElementById('tebak').disabled = false;
+            }
+        }
+        function mainlg(){
+            let angka = parseFloat(document.getElementById('angka').value);
+            if(komputer === angka){
+            document.getElementById('hasil').innerHTML = `kamu berhasil menebak angkanya : ${komputer}`
+            document.getElementById('tebak').disabled = false;
+            }else if(komputer < angka){
+            document.getElementById('hasil').innerHTML = `angka yang di tebak terlalu besar`
+                        document.getElementById('tebak').disabled = false;
+            }else{
+            document.getElementById('hasil').innerHTML = `angka yang di tebak terlalu kecil`
+                        document.getElementById('tebak').disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>

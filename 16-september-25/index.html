@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/invisible-man.png" type="image/x-icon">
+    <style>
+        img{
+            width: 100%;
+            height: 45vh;
+        }
+        .modal{
+            z-index: 99;
+            background-color: aqua;
+            width: 50%;
+            display: none;
+            height: 70vh;
+            position: fixed;
+            box-shadow: 2px 2px 10px 2px black;
+            border-radius: 10px;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0,0,0,0.6);
+            left: 50%;
+            top: 50%;
+        }
+        .close{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background-color: red;
+            color: white;
+            border: none;
+        }
+        .close:hover{
+            cursor: pointer;
+            color: rgb(0, 0, 0);
+            transform: scale(1.1);
+            font-weight: bold;
+        }
+        .modal-content{
+            width: 90%;
+            height: 60vh;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            background: #fff;
+            margin: auto;
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 600px;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-60%); }
+            to   { opacity: 1; transform: translateY(-50%); }
+        }
+        .card-body {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px; /* kasih jarak antara gambar dan teks */
+}
+.card-text h3 {
+    margin-bottom: 15px; /* jarak antara judul dan paragraf */
+}
+
+.card-text p {
+    margin-bottom: 10px; /* jarak antar paragraf */
+    line-height: 1.6;    /* biar teks lebih enak dibaca */
+}
+
+
+
+.card-img img {
+    width: 200px;  /* atur lebar gambar */
+    border-radius: 8px;
+}
+
+.card-text {
+    flex: 1;
+}
+
+    </style>
+</head>
+<body>
+    <div class="utama">
+        <div class="ktk">
+            <div class="atas">
+                <div class="judul">
+                    <p>You Mike Olso Like</p>
+                </div>
+            </div>
+            <div class="bks">
+            <div class="jua">
+                <div class="modal" id="myModal">
+    <div class="modal-content">
+        <span class="close">Close</span>
+        <div class="card">
+            <div class="card-body">
+                <div class="card-img">
+                    <img src="gambar1.jpg" alt="">
+                </div>
+                <div class="card-text">
+                    <h3>Nama : Prince</h3>
+                    <p><strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, veritatis.</strong></p>
+                    <p><strong>Lorem ipsum dolor sit amet.</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                <div class="sa">
+                    <div class="img2">
+                        <img src="gambar1.jpg" alt="" id="btn"
+                        data-title="The Conjuring" 
+                        data-desc="Film horor tentang keluarga Warren melawan iblis.">
+                    </div>
+                    <div class="pen">
+                        <p>The Conjuring</p>
+                    </div>
+                    <div class="o">
+                        <div class="pe">
+                        <p>⭐⭐⭐⭐⭐</p>
+                    </div>
+                    <div class="po">
+                        <p>40%</p>
+                    </div>
+                    </div>
+                    <div class="pn">
+                        <p>120$</p>
+                    </div>
+                    
+                </div>
+                <div class="du">
+                    <div class="img3">
+                        <img src="gambar2.jpeg" alt="" id="btn1">
+                    </div>
+                    <div class="pen">
+                        <p>Exit 8</p>
+                    </div>
+                    <div class="o">
+                        <div class="pe">
+                        <p>⭐⭐⭐⭐⭐</p>
+                    </div>
+                    <div class="po">
+                        <p>40%</p>
+                    </div>
+                    </div>
+                    <div class="pn">
+                        <p>120$</p>
+                    </div>
+                </div>
+                <div class="ti">
+                    <div class="img">
+                        <img src="gambar3.jpeg" alt="" id="btn3">
+                    </div>
+                    <div class="pen">
+                        <p>The Long Walk</p>
+                    </div>
+                    <div class="o">
+                        <div class="pe">
+                        <p>⭐⭐⭐⭐⭐</p>
+                    </div>
+                    <div class="po">
+                        <p>40%</p>
+                    </div>
+                    </div>
+                    <div class="pn">
+                        <p>120$</p>
+                    </div>
+                </div>
+                <div class="em">
+                    <div class="img">
+                        <img src="gambar10.webp" alt="" id="btn4">
+                    </div>
+                    <div class="pen">
+                        <p>The Shadow's Edge</p>
+                    </div>
+                    <div class="o">
+                        <div class="pe">
+                        <p>⭐⭐⭐⭐⭐</p>
+                    </div>
+                    <div class="po">
+                        <p>40%</p>
+                    </div>
+                    </div>
+                    <div class="pn">
+                        <p>120$</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    let modal = document.getElementById('myModal');
+    let span = document.getElementsByClassName('close')[0];
+
+    let modalImg = modal.querySelector("img");
+    let modalTitle = modal.querySelector("h3");
+    let modalDesc = modal.querySelectorAll("p");
+
+    btn.onclick = function(){
+        modal.style.display = "block";
+        modalImg.src = "gambar1.jpg";
+        modalTitle.textContent = "Nama : The Conjuring";
+        modalDesc[0].textContent = "The Conjuring: Last Rites menceritakan kasus nyata keluarga Smurl di Pennsylvania yang diteror empat entitas gaib, termasuk satu iblis kuat. Ed dan Lorraine Warren dipanggil untuk menyelidiki, sambil menghadapi dilema pribadi soal pensiun dari dunia paranormal. Film ini jadi penutup kisah pasangan Warren dalam semesta The Conjuring.";
+        modalDesc[1].textContent = "Rilis September 2025.";
+    }
+
+    btn1.onclick = function(){
+        modal.style.display = "block";
+        modalImg.src = "gambar2.jpeg";
+        modalTitle.textContent = "Nama : Exit 8";
+        modalDesc[0].textContent = "Seorang pria — “The Lost Man” — terperangkap di sebuah lorong bawah tanah stasiun kereta bawah tanah Tokyo yang tampak tak berujung. Untuk bisa keluar lewat Exit 8, ia harus mengikuti satu aturan: jika dia melihat sesuatu yang aneh (“anomaly”), harus berbalik; jika tidak ada, dia boleh maju. Tapi satu kesalahan kecil saja bisa mengirimnya kembali ke awal.";
+        modalDesc[1].textContent = "Rilis Mei 2025.";
+    }
+
+    btn3.onclick = function(){
+        modal.style.display = "block";
+        modalImg.src = "gambar3.jpeg";
+        modalTitle.textContent = "Nama : The Long Walk";
+        modalDesc[0].textContent = "The Long Walk mengisahkan 100 remaja laki-laki di Amerika distopia yang dipaksa ikut lomba jalan kaki tanpa henti; siapa pun yang berhenti atau melambat akan langsung dieksekusi. Tokoh utama, Ray Garraty, berjuang melawan rasa sakit, putus asa, dan persaingan kejam, sambil menemukan persahabatan serta makna hidup di tengah perjalanan mematikan ini.";
+        modalDesc[1].textContent = "Rilis September 2025";
+    }
+
+    btn4.onclick = function(){
+        modal.style.display = "block";
+        modalImg.src = "gambar10.webp";
+        modalTitle.textContent = "Nama : The Shadow's Edge";
+        modalDesc[0].textContent = "Film aksi Jackie Chan dengan nuansa kriminal dan misteri. The Shadows Edge bercerita tentang Wong Tak-chung (Jackie Chan), mantan ahli pelacakan yang dipanggil kembali untuk membongkar perampokan kripto besar di Makau, menghadapi otak kriminal “Wolf King” dalam perburuan penuh aksi dan ketegangan";
+        modalDesc[1].textContent = "Rilis Agustus 2025";
+    }
+
+    span.onclick = function(){
+        modal.style.display = "none";
+    }
+</script>
+
+</body>
+</html>

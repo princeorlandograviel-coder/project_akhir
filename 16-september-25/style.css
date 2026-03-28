@@ -1,0 +1,173 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.utama{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(196, 240, 240);
+}
+.ktk{
+    width: 100%;
+    height: 80vh;
+}
+.atas{
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bks{
+    width: 100%;
+    height: 66vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.jua{
+    width: 92%;
+    height: 65vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sa{
+    height: 62vh;
+    width: 22%;
+    border-radius: 10px;
+}
+.du{
+    height: 62vh;
+    width: 22%;
+}
+.ti{
+    height: 62vh;
+    width: 22%;
+}
+.em{
+    height: 62vh;
+    width: 22%;
+}
+.judul{
+    width: 100%;
+    height: 6vh;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+img{
+    width: 100%;
+    height: 100vh;
+    border-radius: 10px;
+    background-color: gray;
+}
+.img2{
+    width: 100%;
+    height: 45vh;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+.img{
+    width: 100%;
+    height: 44.5vh;
+}
+.pen{
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+.pn{
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+.pe{
+    width: 50%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+}
+.po{
+    width: 50%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+.o{
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Media Query khusus untuk layar kecil (seperti iPhone SE) */
+@media screen and (max-width: 576px) {
+    .utama {
+        height: auto; /* Biar container bisa memanjang ke bawah */
+        padding: 20px 0;
+    }
+
+    .ktk {
+        height: auto;
+    }
+
+    .jua {
+        flex-direction: column; /* Ubah dari samping ke bawah */
+        height: auto;
+        gap: 20px; /* Beri jarak antar kartu */
+        width: 90%;
+    }
+
+    .sa, .du, .ti, .em {
+        width: 100%; /* Kartu memenuhi lebar layar */
+        height: auto;
+        margin-bottom: 20px;
+        background: white; /* Opsional: beri background agar terlihat seperti kartu */
+        border-radius: 10px;
+        padding-bottom: 10px;
+    }
+
+    .img, .img2, .img3 {
+        height: 300px; /* Sesuaikan tinggi gambar di HP */
+    }
+
+    img {
+        height: 100% !important; /* Paksa gambar mengikuti container */
+        object-fit: cover; /* Agar gambar tidak gepeng */
+    }
+
+    /* Penyesuaian Modal untuk HP */
+    .modal {
+        width: 90%; 
+        height: 80vh;
+    }
+
+    .modal-content {
+        width: 85%;
+        height: auto;
+        max-height: 90vh;
+        flex-direction: column; /* Gambar di atas, teks di bawah di dalam modal */
+        overflow-y: auto; /* Bisa di-scroll jika teks kepanjangan */
+    }
+
+    .card-body {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .card-img img {
+        width: 150px; /* Kecilkan gambar di dalam modal */
+    }
+}

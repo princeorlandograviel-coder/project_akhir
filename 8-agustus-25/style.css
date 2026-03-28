@@ -1,0 +1,134 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.utama{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(240, 240, 240);
+}
+.awal{
+    width: 50%;
+    height: 60vh;
+    border: 4px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    background-color: bisque;
+    
+}
+.hsatu{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.selec{
+    width: 100%;
+    height: 15vh;
+    margin-left: 10px;
+}
+.selec p{
+    font-size: 25px;
+    font-weight: 500;
+}
+.selec input{
+    padding: 10px;
+    border: 2px solid black;
+    background-color: rgb(220, 220, 218);
+    border-radius: 5px;
+}
+.selec select{
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: rgb(220, 220, 218);
+    border: 2px solid black;
+}
+.hasil{
+    width: 100%;
+    height: 15vh;
+    margin-left: 10px;
+    font-size: 20px;
+}
+.hasil button{
+    padding: 10px;
+    height: 6vh;
+    width: 16.5%;
+    margin-top: 10px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    border: 2px solid black;
+    background-color: rgb(220, 220, 218);
+}
+.hasil p{
+    font-size: 25px;
+    font-weight: 500;
+}
+.hasil button p{
+    font-size: 50px;
+}
+.hr{
+    width: 99.5%;
+    height: 0.001vh;
+    border: 1.5px solid black;
+    margin-bottom: 5px;
+}
+
+
+@media screen and (max-width: 576px) {
+    /* Gunakan ini di paling atas CSS agar berlaku global */
+    * {
+        box-sizing: border-box;
+    }
+
+    .utama {
+        height: auto;
+        min-height: 100vh;
+        padding: 20px 10px; /* Beri jarak sedikit dari pinggir layar */
+    }
+
+    .awal {
+        width: 100%; /* Atau 95% agar ada sela sedikit */
+        height: auto;
+        padding: 15px; /* Jarak antara konten dan garis kotak */
+        border-width: 3px;
+    }
+
+    .selec {
+        width: 100%;
+        margin-left: 0; /* Menghilangkan margin yang bikin miring ke kanan */
+        height: auto;
+        margin-bottom: 15px;
+    }
+
+    .selec input, 
+    .selec select {
+        width: 100%; /* Sekarang akan pas di dalam karena border-box */
+        margin-top: 8px;
+        font-size: 16px; /* Ukuran pas untuk HP */
+    }
+
+    .hasil {
+        width: 100%;
+        margin-left: 0;
+        height: auto;
+        padding-bottom: 10px;
+    }
+
+    .hasil button {
+        width: 100%; /* Tombol jadi lebar penuh dan presisi */
+        height: 50px;
+        margin-top: 10px;
+    }
+
+    .hr {
+        width: 100%; /* Garis pemisah mengikuti lebar kotak */
+    }
+}

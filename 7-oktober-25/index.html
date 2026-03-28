@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Animasi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/invisible-man.png" type="image/x-icon">
+</head>
+<body>
+    <h1>Scroll untuk melihat Animasi</h1>
+    <div class="box" style="background-color: red;"><h2>TIdur!!</h2></div>
+    <div class="box" style="background-color: orange;"><h2>Jangan Lupa Berdoa</h2></div>
+    <div class="box" style="background-color: black;"><h2>Ingat Tuhan</h2></div>
+    <div class="box" style="background-color: red;"><h2>Buku Jendela Dunia</h2></div>
+    <div class="box" style="background-color: orange;"><h2>Hidup Jokowi</h2></div>
+    <div class="box" style="background-color: black;"><h2>2045 Indonesia Emas</h2></div>
+    <div class="box" style="background-color: red;"><h2>Jangan Lupa Makan</h2></div>
+    <div class="box" style="background-color: orange;"><h2>Kerja!!!</h2></div>
+    <div class="box" style="background-color: black;"><h2>67 ON TOP!</h2></div>
+    <div class="box" style="background-color: red;"><h2>0895674783335</h2></div>
+    <div class="box" style="background-color: orange;"><h2>Smile</h2></div>
+    <div class="box" style="background-color: black;"><h2>I Hate Niggers</h2></div>
+    <div class="box" style="background-color: red;"><h2>100!!!!!</h2></div>
+    <div class="box" style="background-color: orange;"><h2>Java Script Gampang</h2></div>
+    <div class="box" style="background-color: black;"><h2>Good Game</h2></div>
+    <script>
+        const boxes = document.querySelectorAll('.box');
+
+        window.addEventListener('scroll',checkBoxes)
+
+        checkBoxes()
+
+        function checkBoxes(){
+            const triggerButton = window.innerHeight / 5 * 4
+
+            boxes.forEach(box => {
+                const boxTop = box.getBoundingClientRect().top
+
+                if(boxTop < triggerButton){
+                    box.classList.add('show')
+                }else{
+                    box.classList.remove('show')
+                }
+            })
+        }
+    </script>
+</body>
+</html>

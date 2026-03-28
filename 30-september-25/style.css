@@ -1,0 +1,153 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.utama{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.atas{
+    width: 100%;
+    height: 10vh;
+    color: white;
+    background-color: red;
+    justify-content: center;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+}
+.bungkus{
+    width: 100%;
+    height: 100vh;
+}
+.ktk{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dalam{
+    width: 80%;
+    height: 75vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.kanan{
+    width: 50%;
+    height: 79vh;
+}
+.kiri{
+    width: 45%;
+    height: 65vh;
+}
+.jdl{
+    width: 100%;
+    height: 7vh;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tgh{
+    width: 100%;
+    height: 50vh;
+}
+.tgh video{
+    width: 100%;
+    height: 50vh;
+}
+.k{
+    width: 87%;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+}
+.take{
+    width: 87%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+}
+.t{
+    width: 100%;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.take button{
+    width: 20%;
+    height: 6vh;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+    background-color: maroon;
+    color: white;
+}
+.ktke{
+    width: 100%;
+    height: 59vh;
+}
+.foto{
+    width: 100%;
+    height: 59vh;
+    overflow-y: scroll;
+    flex-wrap: wrap;
+    display: flex;
+}
+.foto::-webkit-scrollbar{
+    display: none;
+}
+.ktke canvas{
+    width: 10%;
+    height: 20vh;
+}
+.foto img{
+    width: 45%;
+    margin-bottom: 5px;
+    height: 25vh;
+    margin-right: 15px;
+}
+@media(max-width:667px){
+    .utama{
+        width: 100%;
+    }
+    .bungkus{
+        width: 100%;
+    }
+    .ktk{
+        width: 100%;
+    }
+    .dalam{
+        display: block;
+        width: 90%;
+    }
+    .k{
+        width: 100%;
+        font-size: 25px;
+    }
+    .foto img{
+        width: 90%;
+        height: 250px;
+        margin-bottom: 10px;
+    }
+    .take{
+        width: 100%;
+    }
+    .take button{
+        width: 30%;
+        font-size: 15px;
+    }
+    .kanan{
+        width: 100%;
+    }
+    .kiri{
+        width: 110%;
+    }
+}

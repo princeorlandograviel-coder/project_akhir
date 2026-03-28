@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Perkalian</title>
+    <link rel="shortcut icon" href="img/invisible-man.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <h2 class="logo">✖️ Kalkulator Perkalian</h2>
+            <div class="theme-toggle" id="toggleTheme">☀️</div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <span class="icon">📊</span>
+                <h1>Program Perkalian</h1>
+            </div>
+
+            <div class="content">
+                <div class="label-box">
+                    <p>📝 Masukan Angka Untuk Dikalikan</p>
+                </div>
+
+                <div class="input-group">
+                    <input type="number" id="angka" placeholder="Contoh: 5" min="1" max="100">
+                    <button onclick="hitung()" class="btn-hitung">🔢 Hitung</button>
+                </div>
+
+                <div class="hasil-container">
+                    <p><strong>📋 Hasil :</strong></p>
+                    <div id="hasil"></div>
+                </div>
+
+                <button onclick="reset()" class="btn-reset">🔄 Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme Toggle
+        const toggleTheme = document.getElementById('toggleTheme');
+        const currentTheme = localStorage.getItem('theme') || 'dark-mode';
+        if (currentTheme === 'light-mode') {
+            document.body.classList.add('light-mode');
+            toggleTheme.textContent = '🌙';
+        }
+        
+        toggleTheme.addEventListener('click', function() {
+            document.body.classList.toggle('light-mode');
+            if (document.body.classList.contains('light-mode')) {
+                localStorage.setItem('theme', 'light-mode');
+                toggleTheme.textContent = '🌙';
+            } else {
+                localStorage.setItem('theme', 'dark-mode');
+                toggleTheme.textContent = '☀️';
+            }
+        });
+
+        function hitung() {
+            const inputAngka = document.getElementById('angka');
+            const hasilElement = document.getElementById('hasil');
+            const angka = parseInt(inputAngka.value);
+
+            // Validasi
+            if (!inputAngka.value.trim()) {
+                hasilElement.innerHTML = '<span class="error">⚠️ Masukan angka terlebih dahulu!</span>';
+                return;
+            }
+
+            if (isNaN(angka) || angka < 1 || angka > 100) {
+                hasilElement.innerHTML = '<span class="error">⚠️ Masukan angka 1-100!</span>';
+                return;
+            }
+
+            let result = '';
+            for (let i = 1; i <= 10; i++) {
+                result += `<div class="result-row"><span class="operasi">${i} × ${angka}</span><span class="sama">=</span><span class="jawaban">${i * angka}</span></div>`;
+            }
+            
+            hasilElement.innerHTML = result;
+        }
+
+        function reset() {
+            document.getElementById('angka').value = '';
+            document.getElementById('hasil').innerHTML = '';
+            document.getElementById('angka').focus();
+        }
+
+        // Enter key
+        document.getElementById('angka').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                hitung();
+            }
+        });
+    </script>
+</body>
+</html>

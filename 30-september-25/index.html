@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nilai 11</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/invisible-man.png" type="image/x-icon">
+</head>
+<body>
+    <div class="utama">
+        <div class="bungkus">
+            <div class="atas">
+                <p>Fotobox Free Use by Prince</p>
+            </div>
+            <div class="ktk">
+                <div class="dalam">
+                    <div class="kanan">
+                        <div class="jdl">
+                            <div class="k">
+                                <p>Smile for the camera | Chessss</p>
+                            </div>
+                        </div>
+                        <div class="tgh">
+                            <video src="" id="video" autoplay></video>
+                        </div>
+                        <div class="t">
+                            <div class="take">
+                                <button id="snap">Take Foto</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="kiri">
+                        <div class="ktke">
+                            <canvas id="canvas" style="display: none;"></canvas>
+                            <div class="foto" id="photos">
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const video = document.getElementById('video');
+        const snapButton = document.getElementById('snap');
+        const canvas = document.getElementById('canvas');
+        const photosDiv = document.getElementById('photos');
+        const context = canvas.getContext('2d');
+
+        navigator.mediaDevices.getUserMedia({video : true})
+            .then(stream => {
+                video.srcObject = stream;
+            })
+            .catch(err =>{
+                console.log('tidak bisa akses kamera',err);
+            })
+
+            snapButton.addEventListener('click',()=>{
+                context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                const imgData = canvas.toDataURL('image/png');
+                const img = document.createElement('img');
+                img.src = imgData;
+                photosDiv.appendChild(img);
+            });
+            canvas.width = 250;
+            canvas.height = 190;
+    </script>
+</body>
+</html>

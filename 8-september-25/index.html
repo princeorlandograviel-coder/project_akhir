@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/invisible-man.png" type="image/x-icon">
+    <title>8 September 25</title>
+</head>
+<body>
+    <div class="utama">
+        <div class="kotak">
+            <div class="judul">
+                <h1>Rumah Sakit Indonesia Raya</h1>
+            </div>
+            <div class="ktk">
+                <div class="bks">
+                    <div class="ktks">
+                        <div class="bksw">
+                            <div class="atas">
+                                <h3>Counter 1</h3>
+                            </div>
+                            <div class="tgh">
+                                <p id="number">D0</p>
+                            </div>
+                            <div class="fungsi">
+                                <div class="min">
+                                    <button id="minus" onclick="kurang()">-</button>
+                                </div>
+                                <div class="red">
+                                    <button id="reset" onclick="reset()">Reset</button>
+                                </div>
+                                <div class="plus">
+                                    <button id="plus" onclick="tambah()"> + </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ktkd">
+                        <div class="bksw">
+                            <div class="atas">
+                                <h3>Counter 2</h3>
+                            </div>
+                            <div class="tgh">
+                                <p id="number2">A0</p>
+                            </div>
+                            <div class="fungsi">
+                                <div class="min">
+                                    <button id="minus1" onclick="kurang1()">-</button>
+                                </div>
+                                <div class="red">
+                                    <button id="reset1" onclick="reset1()">Reset</button>
+                                </div>
+                                <div class="plus">
+                                    <button id="plus1" onclick="tambah1()"> + </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let number = 0;
+        let number2 = 0;
+        
+        function ubahTampilan(){
+            document.getElementById('number').textContent = `D${number}`;
+            document.getElementById('plus').disabled = number === 10;
+            document.getElementById('minus').disabled = number === 0;
+        }
+        function reset(){
+            number = 0;
+            ubahTampilan();
+        }
+        function tambah(){
+            if(number < 10){
+                number++       
+                ubahTampilan();     
+            }
+        }
+        function kurang(){
+            if(number > 0){
+                number--
+                ubahTampilan();               
+            }
+        }
+
+        function ubahTampilan2(){
+            document.getElementById('number2').textContent = `A${number2}`;
+            document.getElementById('plus1').disabled = number2 === 10;
+            document.getElementById('minus1').disabled = number2 === 0;
+        }
+        function reset1(){
+            number2 = 0;
+            ubahTampilan2();
+        }
+        function tambah1(){
+            if(number2 < 10){
+                number2++       
+                ubahTampilan2();     
+            }
+        }
+        function kurang1(){
+            if(number2 > 0){
+                number2--
+                ubahTampilan2();               
+            }
+        }
+    </script>
+</body>
+</html>

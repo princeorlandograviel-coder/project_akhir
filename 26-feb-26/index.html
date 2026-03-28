@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AdminTool Pro — 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <header>
+            <h1>ADMIN TOOL PRO</h1>
+            <p>Data & List Processor Mobile</p>
+        </header>
+
+        <div class="main-card">
+            <textarea id="editor" placeholder="Tempel daftar nama/data di sini..."></textarea>
+            
+            <div class="info-bar">
+                <span>BARIS: <span id="count">0</span></span>
+                <span id="saveStatus">Tersimpan</span>
+            </div>
+
+            <div class="tools-grid">
+                <button onclick="transform('clean')">✨ Bersihkan List</button>
+                <button onclick="transform('sort')">AZ Urut Abjad</button>
+                <button onclick="transform('upper')">AA KAPITAL</button>
+                <button onclick="transform('lower')">aa kecil</button>
+                <button onclick="copyToClipboard()" class="btn-primary">📋 Salin Hasil</button>
+                <button onclick="resetAll()" class="btn-danger">🗑 Hapus Semua</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast">Berhasil!</div>
+
+    <script>
+        const editor = document.getElementById('editor');
+        const countDisplay = document.getElementById('count');
+        const saveStatus = document.getElementById('saveStatus');
+
+        // Load data saat dibuka
+        window.onload = () => {
+            const savedData = localStorage.getItem('admin_tool_data');
+            if (savedData) {
+                editor.value = savedData;
+                updateCount();
+            }
+        };
+
+        editor.addEventListener('input', () => {
+            updateCount();
+            saveData();
+        });
+
+        function updateCount() {
+            const lines = editor.value.split('\n').filter(l => l.trim() !== "");
+            countDisplay.innerText = lines.length;
+        }
+
+        function saveData() {
+            localStorage.setItem('admin_tool_data', editor.value);
+            saveStatus.innerText = "Menyimpan...";
+            saveStatus.style.color = "#06b6d4";
+            setTimeout(() => { 
+                saveStatus.innerText = "Tersimpan"; 
+                saveStatus.style.color = "#94a3b8";
+            }, 800);
+        }
+
+        function transform(type) {
+            let lines = editor.value.split('\n').filter(l => l.trim() !== "");
+            if (lines.length === 0) return;
+
+            switch(type) {
+                case 'clean':
+                    // Regex untuk hapus nomor urut (1., 2), dst)
+                    lines = lines.map(l => l.replace(/^\d+[\s.)-]+/, '').trim());
+                    break;
+                case 'sort':
+                    lines.sort((a, b) => a.localeCompare(b));
+                    break;
+                case 'upper':
+                    lines = lines.map(l => l.toUpperCase());
+                    break;
+                case 'lower':
+                    lines = lines.map(l => l.toLowerCase());
+                    break;
+            }
+
+            editor.value = lines.join('\n');
+            saveData();
+            showToast("Data Diperbarui");
+        }
+
+        function copyToClipboard() {
+            if (!editor.value) return;
+            editor.select();
+            document.execCommand('copy');
+            showToast("Berhasil Disalin!");
+        }
+
+        function resetAll() {
+            if (confirm("Hapus semua data?")) {
+                editor.value = "";
+                updateCount();
+                saveData();
+            }
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.innerText = msg;
+            toast.style.display = "block";
+            setTimeout(() => { toast.style.display = "none"; }, 2000);
+        }
+    </script>
+</body>
+</html>

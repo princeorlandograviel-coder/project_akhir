@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nilai 9</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/invisible-man.png" type="image/x-icon">
+</head>
+<body>
+    <div class="utama">
+        <div class="bks">
+            <div class="atas">
+                <div class="s">
+                    <p>Theater</p>
+                </div>
+                <div class="d">
+                    <p>Tv Show</p>
+                </div>
+                <div class="t">
+                    <p>Movies</p>
+                </div>
+                <div class="e">
+                    <p>Videos</p>
+                </div>
+            </div>
+            <hr>
+            <div class="da">
+                <div class="ktk">
+                    <div class="kanan">
+                            <img src="gambar1.jpg" alt="" id="img">
+                            <div class="su">
+                                <div class="suka">
+                                    <p>Suka</p>
+                                </div>
+                                <div class="tdsuka">
+                                    <p>Tidak Suka</p>
+                                </div>
+                            </div>
+
+
+                    </div>
+                    <div class="tengah">
+                        <div class="atajs">
+                            <h2 id="judul">Judul Film</h2>
+                        </div>
+                        <div class="tntn">
+                            <div class="tonton">
+                                <p>Tonton</p>
+                            </div>
+                            <div class="download">
+                                <p>Download</p>
+                            </div>
+                        </div>
+                        <p>Sinopsis</p>
+                        <div class="abu">
+                            <div class="l">
+                                <p id="sinopsis"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="kiri">
+                        <div class="ats">
+                            <p>Pilih Film</p>
+                        </div>
+                        <div class="se">
+                            <div class="k">
+                        <div class="daftar">
+                        <select name="" id="film">
+                            <option value="">-- Daftar Film --</option>
+                            <option value="film1">The Conjuring - Last Rites</option>
+                            <option value="film2">Exit 8</option>
+                            <option value="film3">The Long Walk</option>
+                            <option value="film4">Perempuan Pembawa Sial</option>
+                            <option value="film5">Sukma</option>
+                            <option value="film6">Mama : Pesan Dari Neraka</option>
+                            <option value="film7">Gereja Setan</option>
+                            <option value="film8">Detective Conan The Movie</option>
+                            <option value="film9">Tinggal Meninggal</option>
+                            <option value="film10">The Shadow's Edge</option>
+                        </select>
+                        </div>
+                        <div class="hargda">
+                            <p>Harga :</p>
+                            <div class="hu">
+                                <p id="harga">0</p>
+                            </div>
+                        </div>
+                        <div class="tikt">
+                            <p>Jumlah Tiket :</p>
+                            <div class="hu">
+                                <input type="number" id="j_tiket">
+                            </div>
+                        </div>
+                        <div class="byer">
+                            <p>Jumlah Bayar :</p>
+                            <div class="hu">
+                                <p> <span id="bayar"></span></p>
+                            </div>
+                        </div>
+                        <div class="bton">
+                            <button onclick="hitung()">Bayar</button>
+                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        let selectElement = document.getElementById('film');
+        let imgElement = document.getElementById('img');
+
+        selectElement.addEventListener("change", function(){
+            let selectValue = selectElement.value;
+
+            if(selectValue === "film1"){
+                imgElement.src = 'gambar1.jpg'
+                harga = 50000;
+                judul = 'The Conjuring'
+                sinopsis = 'The Conjuring: Last Rites menceritakan kasus nyata keluarga Smurl di Pennsylvania yang diteror empat entitas gaib, termasuk satu iblis kuat. Ed dan Lorraine Warren dipanggil untuk menyelidiki, sambil menghadapi dilema pribadi soal pensiun dari dunia paranormal. Film ini jadi penutup kisah pasangan Warren dalam semesta The Conjuring.'
+            }else if(selectValue === "film2"){
+                imgElement.src = 'gambar2.jpeg'
+                harga = 50000;
+                judul = 'Exit 8'
+                sinopsis = 'Seorang pria — “The Lost Man” — terperangkap di sebuah lorong bawah tanah stasiun kereta bawah tanah Tokyo yang tampak tak berujung. Untuk bisa keluar lewat Exit 8, ia harus mengikuti satu aturan: jika dia melihat sesuatu yang aneh (“anomaly”), harus berbalik; jika tidak ada, dia boleh maju. Tapi satu kesalahan kecil saja bisa mengirimnya kembali ke awal.'
+            }else if(selectValue === "film3"){
+                imgElement.src = 'gambar3.jpeg'
+                harga = 50000;
+                judul = 'The Long Walk'
+                sinopsis = 'The Long Walk mengisahkan 100 remaja laki-laki di Amerika distopia yang dipaksa ikut lomba jalan kaki tanpa henti; siapa pun yang berhenti atau melambat akan langsung dieksekusi. Tokoh utama, Ray Garraty, berjuang melawan rasa sakit, putus asa, dan persaingan kejam, sambil menemukan persahabatan serta makna hidup di tengah perjalanan mematikan ini.'
+            }else if(selectValue === "film4"){
+                imgElement.src = 'gambar4.jpeg'
+                harga = 50000;
+                judul = 'Perempuan Pembawa Sial'
+                sinopsis = 'Perempuan Pembawa Sial bercerita tentang Mirah, wanita yang dikutuk sehingga setiap pria yang dekat dengannya akan mati. Saat ia jatuh cinta pada Bana, ia harus menghadapi asal kutukan dari saudara tirinya dan berjuang melawan takdir kelam tersebut.'
+            }else if(selectValue === "film5"){
+                imgElement.src = 'gambar5.jpg'
+                harga = 50000;
+                judul = 'Sukma'
+                sinopsis = 'Sukma mengisahkan Arini yang pindah ke rumah baru bersama keluarganya, lalu menemukan cermin kuno berhantu yang memicu teror gaib dan niat jahat seorang wanita tua untuk merebut tubuhnya.'
+            }else if(selectValue === "film6"){
+                imgElement.src = 'gambar6.jpg'
+                harga = 50000;
+                judul = 'Mama : Pesan Dari Neraka'
+                sinopsis = 'Putri, anak dari peramal tarot ternama Sari, menerima pesan singkat dari nomor ibunya yang telah meninggal. Teror ini membawanya menghadapi misteri kelam masa lalu ibunya yang tidak pernah ia ketahui. Film ini menggabungkan horor psikologis modern dengan elemen mistis khas budaya Indonesia.'
+            }else if(selectValue === "film7"){
+                imgElement.src = 'gambar7.webp'
+                harga = 50000;
+                judul = 'Gereja Setan'
+                sinopsis = 'Gereja Setan bercerita tentang Ribka, wanita muda yang terjerumus ke sekte sesat setelah dikhianati calon suaminya, lalu harus berjuang keluar dari ritual gelap dan menemukan kembali iman serta harapannya.'
+            }else if(selectValue === "film8"){
+                imgElement.src = 'gambar8.jpeg'
+                harga = 50000;
+                judul = 'Detective Conan'
+                sinopsis = 'Detective Conan: One-Eyed Flashback menceritakan Inspektur Kansuke Yamato yang mengalami luka parah di masa lalu dan koma, lalu bersama Conan dan Kogoro menyelidiki kasus lama yang kini mengancam nyawanya.'
+            }else if(selectValue === "film9"){
+                imgElement.src = 'gambar9.jpg'
+                harga = 50000;
+                judul = 'Tinggal Meninggal'
+                sinopsis = 'Gema (Omara Esteghlal), seorang pegawai kantoran yang hidup kesepian, mendapati hidupnya berubah setelah ayahnya meninggal. Rekan-rekan kantornya mulai menunjukkan perhatian, namun kehangatan itu hanya sementara. Merasa kehilangan, Gema memutuskan untuk memalsukan kematiannya sendiri demi mendapatkan perhatian kembali. Namun, kebohongan tersebut menjerumuskannya dalam situasi yang semakin rumit dan penuh konflik.'
+            }else if(selectValue === "film10"){
+                imgElement.src = 'gambar10.webp'
+                harga = 50000;
+                judul = 'The Shadows Edge'
+                sinopsis = 'The Shadows Edge bercerita tentang Wong Tak-chung (Jackie Chan), mantan ahli pelacakan yang dipanggil kembali untuk membongkar perampokan kripto besar di Makau, menghadapi otak kriminal “Wolf King” dalam perburuan penuh aksi dan ketegangan'
+            }
+            const format = harga.toLocaleString('id-ID')
+            document.getElementById('harga').textContent = `Rp${format}`;
+            document.getElementById('sinopsis').textContent = sinopsis;
+            document.getElementById('judul').textContent = judul;
+        })
+        function hitung(){
+            let j_tiket = parseFloat(document.getElementById('j_tiket').value);
+            let bayar    = harga * j_tiket;
+            const format = bayar.toLocaleString('id-ID')
+            document.getElementById('bayar').textContent = `Rp${format}`;
+        }
+    </script>
+</body>
+</html>

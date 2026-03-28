@@ -1,0 +1,172 @@
+:root {
+    --spotify-green: #1DB954;
+    --bg-black: #000000;
+    --bg-dark-grey: #121212;
+    --bg-light-grey: #181818;
+    --text-white: #FFFFFF;
+    --text-grey: #b3b3b3;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-black);
+    color: var(--text-white);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.utama {
+    display: flex;
+    height: 100vh;
+}
+
+/* SIDEBAR (KIRI) */
+.kiri {
+    width: 260px;
+    background-color: var(--bg-black);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dlm {
+    background-color: var(--bg-dark-grey);
+    border-radius: 8px;
+    padding: 20px;
+    height: 100%;
+}
+
+.atas div {
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-grey);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.atas div:hover { color: white; }
+
+.q { color: var(--text-grey); margin: 20px 0 10px 0; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+
+.qw li {
+    list-style: none;
+    padding: 8px 0;
+    color: var(--text-grey);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.qw li:hover { color: var(--spotify-green); }
+
+/* MAIN CONTENT (TENGAH) */
+.tengah {
+    flex: 1;
+    background: linear-gradient(to bottom, #222222, #121212);
+    padding: 30px;
+    overflow-y: auto;
+    border-radius: 8px;
+    margin: 10px 5px;
+}
+
+.input input {
+    width: 100%;
+    max-width: 400px;
+    background-color: #242424;
+    border: 1px solid transparent;
+    border-radius: 500px;
+    padding: 12px 20px;
+    color: white;
+    margin-bottom: 30px;
+    outline: none;
+}
+
+.input input:focus { border: 1px solid #555; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    color: var(--text-grey);
+    font-size: 13px;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+tr { transition: var(--transition); border-radius: 5px; }
+
+tr:hover:not(:first-child) {
+    background-color: rgba(255,255,255,0.1);
+}
+
+td { padding: 12px 10px; font-size: 14px; color: var(--text-grey); }
+
+tr:hover td { color: white; }
+
+/* PLAYER CONTROLS */
+audio {
+    width: 100%;
+    height: 40px;
+    margin: 20px 0;
+    filter: invert(100%) hue-rotate(180deg) brightness(1.5); /* Spotify Green feel */
+}
+
+.tengah button {
+    background-color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 500px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: transform 0.2s;
+}
+
+.tengah button:hover { transform: scale(1.05); background-color: var(--spotify-green); color: white; }
+
+/* LIRIK (KANAN) */
+.kanan {
+    width: 300px;
+    background-color: var(--bg-black);
+    padding: 15px;
+}
+
+.lirik {
+    background-color: var(--bg-dark-grey);
+    height: 100%;
+    border-radius: 8px;
+    padding: 25px;
+    font-size: 18px;
+    line-height: 1.6;
+    font-weight: 700;
+    color: var(--text-grey);
+    overflow-y: auto;
+}
+
+/* RESPONSIVE IPHONE SE (375px) */
+@media (max-width: 768px) {
+    .utama { flex-direction: column; overflow-y: auto; }
+    
+    .kiri, .kanan { width: 100%; height: auto; }
+    
+    .tengah { margin: 10px; height: auto; overflow: visible; }
+    
+    /* Sembunyikan kolom Album & Waktu di HP agar tidak sesak */
+    th:nth-child(4), td:nth-child(4),
+    th:nth-child(5), td:nth-child(5) {
+        display: none;
+    }
+    
+    .lirik { height: 300px; margin-bottom: 50px; }
+}

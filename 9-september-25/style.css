@@ -1,0 +1,266 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.utama{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.l{
+    width: 90%;
+    height: 35vh;
+}
+.bks{
+    width: 90%;
+    height: 90vh;
+}
+.atas{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+}
+.s{
+    width: 10%;
+    height: 10vh;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.s p{
+    font-size: 20px;
+}
+.d{
+    width: 10%;
+    height: 10vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.t{
+    width: 10%;
+    height: 10vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.e{
+    width: 10%;
+    height: 10vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.da{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ktk{
+    width: 93%;
+    height: 75vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.kanan{
+    width: 30%;
+    height: 69vh;
+}
+.tengah{
+    width: 35%;
+    height: 69vh;
+}
+.kiri{
+    width: 25%;
+    height: 71vh;
+    background-color: maroon;
+    border-radius: 10px;
+    margin-bottom: 14px;
+}
+.su{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.suka{
+    width: 30%;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: maroon;
+    color: white;
+    border-radius: 13px;
+}
+.tdsuka{
+    width: 50%;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: maroon;
+    color: white;
+    border-radius: 13px;
+}
+.tntn{
+    width: 100%;
+    height: 13vh;
+    display: flex;
+    align-items: center;
+}
+.tonton{
+    width: 40%;
+    height: 7vh;
+    background-color: maroon;
+    color: white;
+    display: flex;
+    margin-right: 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+.download{
+    width: 40%;
+    height: 7vh;
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+.abu{
+    width: 100%;
+    margin-top: 11px;
+    background-color: rgb(239, 239, 239);
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ats{
+    width: 100%;
+    height: 8vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.se{
+    width: 100%;
+    height: 62vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.k{
+    width: 85%;
+    height: 62vh;
+}
+.daftar{
+    width: 100%;
+    height: 10vh;
+}
+.daftar select{
+    width: 100%;
+    height: 5.5vh;
+    border-radius: 5px;
+    background-color: rgb(232, 232, 232);
+}
+.hargda{
+    color: white;
+    margin-bottom: 6px;
+}
+.hu{
+    width: 100%;
+    height: 6vh;
+    background-color: rgb(232, 232, 232);
+        display: flex;
+        border-radius: 6px;
+    align-items: center;
+}
+.hu p{
+    color: black;
+    margin-left: 7px;
+}
+.hu input{
+    width: 100%;
+    height: 6vh;
+    background-color: rgb(232, 232, 232);
+    border: none;
+    padding-left: 6px;
+        display: flex;
+        border-radius: 6px;
+    align-items: center;
+}
+.tikt{
+    color: white;
+    margin-bottom: 6px;
+}
+.byer{
+    color: white;
+    margin-bottom: 45px;
+}
+.bton button{
+    background-color: rgb(230, 230, 230);
+    width: 100%;
+    height: 7vh;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+}
+img{
+    width: 100%;
+    height: 60vh;
+    border-radius: 10px;
+}
+@media(max-width:667px){
+    .utama{
+        width: 100%;
+    }
+    .utama hr{
+        display: none;
+    }
+    .atas{
+        display: none;
+    }
+    .ktk{
+        display: block;
+    }
+    .kanan{
+        width: 100%;
+    }
+    .tengah{
+        width: 100%;
+    }
+    .kiri{
+        width: 100%;
+    }
+    .k{
+        font-size: 20px;
+    }
+    .abu{
+        width: 100%;
+        height: 45vh;
+    }
+    .tntn{
+        width: 100%;
+    }
+    .tonton{
+        width: 50%;
+    }.img{
+        width: 90%;
+    }
+}

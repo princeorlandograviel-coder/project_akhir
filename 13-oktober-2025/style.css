@@ -1,0 +1,221 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --bg: #0f1419;
+    --card: #111827;
+    --muted: #9ca3af;
+    --text: #f8fafc;
+    --accent: #06b6d4;
+    --accent-2: #ff6b6b;
+    --glass: rgba(255, 255, 255, 0.05);
+    /* Gunakan variabel untuk jarak konsisten */
+    --gap-main: 24px;
+    --radius: 16px;
+}
+
+/* ... Reset Tetap Sama ... */
+
+.navbar {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.container {
+    max-width: 480px; /* Lebar ideal untuk form mobile-first */
+    margin: 80px auto 40px;
+    padding: 0 16px; /* Jarak aman di sisi layar HP */
+}
+
+.card {
+    background: var(--card);
+    padding: var(--gap-main);
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.card-head h1 {
+    font-size: 1.6rem;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+}
+
+/* FORM SPACING */
+.form-row {
+    margin-top: 28px;
+}
+
+.form-row label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.input-row {
+    display: flex;
+    gap: 10px;
+}
+
+input[type=tel] {
+    height: 54px; /* Ukuran ideal untuk input jari */
+    background: rgba(0, 0, 0, 0.3);
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    padding: 0 16px;
+    font-size: 16px; /* Mencegah auto-zoom di iOS */
+    transition: border-color 0.2s;
+}
+
+input[type=tel]:focus {
+    border-color: var(--accent);
+    outline: none;
+}
+
+/* HARGA GRID */
+.harga-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 Kolom sejajar */
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.harga-item {
+    height: 64px;
+    background: var(--glass);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* RESPONSIVE IPHONE SE & HP KECIL */
+@media (max-width: 400px) {
+    .container {
+        margin-top: 70px;
+        padding: 0 12px;
+    }
+
+    .card {
+        padding: 20px 16px; /* Spasi dalam lebih rapat di HP */
+    }
+
+    .card-head h1 {
+        font-size: 1.4rem;
+    }
+
+    .input-row {
+        flex-direction: column; /* Tombol Paste pindah ke bawah input */
+    }
+
+    .btn.small {
+        width: 100%;
+        height: 48px;
+    }
+
+    .harga-container {
+        grid-template-columns: 1fr; /* 1 Kolom penuh agar teks harga jelas */
+        gap: 8px;
+    }
+
+    .harga-item {
+        height: 58px;
+    }
+
+    .help {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+}
+
+body{
+    background: linear-gradient(180deg, var(--bg) 0%, #07101a 100%);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+body.light-mode{
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --muted: #475569;
+    --text: #0f1724;
+    --accent: #06b6d4;
+    --accent-2: #e63946;
+    --glass: rgba(0,0,0,0.03);
+}
+
+.navbar{
+    position: fixed;
+    left: 0; right: 0; top: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    backdrop-filter: blur(8px) saturate(120%);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    padding: 10px 18px;
+    z-index: 50;
+}
+
+.nav-content{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:700}
+.theme-toggle{background:transparent;border:0;color:var(--text);cursor:pointer;padding:6px;border-radius:8px}
+
+.container{max-width:780px;margin:110px auto;padding:20px}
+.card{background:linear-gradient(180deg,var(--card),#0b1220);padding:20px;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+.card-head h1{margin-bottom:6px}
+.muted{color:var(--muted);margin-top:0}
+
+.form-row{margin-top:14px}
+.input-row{display:flex;gap:10px;align-items:center}
+input[type=tel]{flex:1;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:var(--glass);color:var(--text);font-size:15px}
+button.btn{padding:10px 14px;border-radius:8px;border:0;cursor:pointer}
+button.small{padding:8px 10px;font-size:0.9rem}
+
+.operator{margin-top:14px}
+.operator-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
+.operator-badge.muted{color:var(--muted)}
+
+.harga-list{margin-top:12px}
+.harga-container{display:flex;flex-wrap:wrap;gap:10px}
+.harga-item{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text);padding:10px 14px;border-radius:10px;cursor:pointer;min-width:120px;text-align:center}
+.harga-item:hover{transform:translateY(-4px);box-shadow:0 6px 18px rgba(6,182,212,0.08)}
+
+.harga-item:focus{outline:2px solid rgba(6,182,212,0.18)}
+.help{margin-top:12px;color:var(--muted);font-size:14px}
+
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:all .18s}
+.modal.open{opacity:1;pointer-events:auto;background:rgba(0,0,0,0.4)}
+.modal-card{background:var(--card);padding:18px;border-radius:12px;max-width:360px;width:90%;border:1px solid rgba(255,255,255,0.04)}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:12px}
+.btn.muted{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;border:0}
+
+.toast{position:fixed;right:18px;bottom:18px;background:var(--card);padding:10px 14px;border-radius:8px;color:var(--text);opacity:0;transform:translateY(10px);transition:all .25s}
+.toast.show{opacity:1;transform:translateY(0)}
+
+@media(max-width:720px){
+    .input-row{flex-direction:column;align-items:stretch}
+    .harga-item{min-width:48%}
+}
+
+@media(max-width:420px){
+    .harga-item{min-width:100%}
+    .container{margin:90px 12px}
+}
+
+/* focus-visible for better keyboard accessibility */
+:focus-visible{outline:2px solid rgba(6,182,212,0.18);outline-offset:2px}
+
+/* subtle entrance */
+.card, .navbar{transform:translateY(0);opacity:1}

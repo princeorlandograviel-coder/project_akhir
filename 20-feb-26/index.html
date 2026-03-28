@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SciConvert — Unit Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>SciConvert</h1>
+            <p>Konverter Satuan Presisi</p>
+        </header>
+
+        <div class="card">
+            <div class="group">
+                <label>Kategori</label>
+                <select id="category" onchange="updateUnits()">
+                    <option value="length">Panjang (Mister)</option>
+                    <option value="weight">Massa (Berat)</option>
+                    <option value="temp">Suhu (Termal)</option>
+                </select>
+            </div>
+
+            <div class="converter-box">
+                <div class="input-group">
+                    <input type="number" id="inputVal" placeholder="0" inputmode="decimal">
+                    <select id="fromUnit"></select>
+                </div>
+
+                <div class="swap-icon">⇅</div>
+
+                <div class="input-group result">
+                    <input type="number" id="outputVal" placeholder="0" readonly>
+                    <select id="toUnit"></select>
+                </div>
+            </div>
+
+            <button class="btn-copy" onclick="copyResult()">Salin Hasil</button>
+        </div>
+    </div>
+    <script>const units = {
+    length: { m: 1, km: 1000, cm: 0.01, mm: 0.001, inch: 0.0254 },
+    weight: { kg: 1, g: 0.001, mg: 0.000001, lb: 0.453592 },
+    temp: ['Celsius', 'Fahrenheit', 'Kelvin']
+};
+
+function updateUnits() {
+    const cat = document.getElementById('category').value;
+    const from = document.getElementById('fromUnit');
+    const to = document.getElementById('toUnit');
+    
+    from.innerHTML = '';
+    to.innerHTML = '';
+
+    const options = cat === 'temp' ? units.temp : Object.keys(units[cat]);
+    
+    options.forEach(unit => {
+        from.add(new Option(unit, unit));
+        to.add(new Option(unit, unit));
+    });
+    calculate();
+}
+
+function calculate() {
+    const cat = document.getElementById('category').value;
+    const val = parseFloat(document.getElementById('inputVal').value) || 0;
+    const from = document.getElementById('fromUnit').value;
+    const to = document.getElementById('toUnit').value;
+    let result = 0;
+
+    if (cat === 'temp') {
+        result = convertTemp(val, from, to);
+    } else {
+        const valInBase = val * units[cat][from];
+        result = valInBase / units[cat][to];
+    }
+
+    document.getElementById('outputVal').value = result.toLocaleString('en-US', {maximumFractionDigits: 5});
+}
+
+function convertTemp(v, f, t) {
+    let c = f === 'Celsius' ? v : f === 'Fahrenheit' ? (v - 32) * 5/9 : v - 273.15;
+    return t === 'Celsius' ? c : t === 'Fahrenheit' ? (c * 9/5) + 32 : c + 273.15;
+}
+
+function copyResult() {
+    const res = document.getElementById('outputVal');
+    res.select();
+    document.execCommand('copy');
+    alert('Hasil disalin!');
+}
+
+document.querySelectorAll('input, select').forEach(el => el.addEventListener('input', calculate));
+updateUnits();</script>
+</body>
+</html>

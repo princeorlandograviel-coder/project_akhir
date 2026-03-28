@@ -1,0 +1,197 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: cursive;
+}
+.atas{
+    width: 100%;
+    height: 10vh;
+    background-color: maroon;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+.utama{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tengah{
+    width: 90%;
+    height: 80vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.kanan{
+    width: 60%;
+    height: 80vh;
+    overflow: scroll;
+}
+.kanan::-webkit-scrollbar{
+    display: none;
+}
+.tgh{
+    width: 70%;
+    height: 55vh;
+}
+.kiri{
+    width: 40%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ats{
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ats h2{
+    font-size: 25px;
+}
+.bwh{
+    width: 100%;
+    height: 40vh;
+    background-color: maroon;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 2.5px 2.5px 2.5px 2.5px rgb(158, 158, 158);
+}
+.bwh span{
+    font-size: 5rem;
+    color: white;
+}
+.soal1{
+    width: 90%;
+    border-radius: 10px;
+    height: 22vh;
+    background-color: maroon;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2.5px 2.5px 2.5px 2.5px rgb(158, 158, 158);
+}
+.delem{
+    width: 95%;
+    height: 18vh;
+}
+.delem p{
+    height: 4.5vh;
+}
+.buton{
+    width: 15%;
+    height: 6vh;
+    background-color: maroon;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.buton button{
+    width: 100%;
+    height: 8vh;
+    border-radius: 10px;
+    background-color: maroon;
+    border: none;
+    color: white;
+    font-size: 20px;
+    transition: background 0.3s, transform 0.2s;
+}
+.buton button:hover{
+    background-color: #b30000;
+    transform: scale(1.01);
+    cursor: pointer;
+}
+
+
+
+
+
+/* Responsive khusus iPhone SE dan Smartphone Kecil */
+@media (max-width: 400px) {
+    .atas {
+        font-size: 16px; /* Mengecilkan header agar tidak makan tempat */
+        position: relative; /* Ubah dari fixed agar tidak menutupi soal pertama */
+    }
+
+    .utama {
+        height: auto;
+        padding: 10px 0;
+    }
+
+    .tengah {
+        display: flex;
+        flex-direction: column-reverse; /* Nilai tampil di atas saat scroll di HP */
+        width: 95%;
+        height: auto;
+    }
+
+    .kiri {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px; /* Jarak antara skor dan soal */
+    }
+
+    .tgh {
+        width: 100%;
+        height: auto;
+    }
+
+    .bwh {
+        height: 120px; /* Perkecil kotak skor di mobile */
+    }
+
+    .bwh span {
+        font-size: 3rem; /* Kecilkan angka skor */
+    }
+
+    .kanan {
+        width: 100%;
+        height: auto;
+        overflow: visible; /* Biarkan scroll natural mengikuti body */
+    }
+
+    .soal1 {
+        width: 100%;
+        height: auto; /* Sangat penting: jangan pakai vh agar teks tidak terpotong */
+        padding: 15px 10px;
+        box-sizing: border-box;
+        margin-bottom: 15px;
+    }
+
+    .delem {
+        width: 100%;
+        height: auto;
+    }
+
+    .delem p {
+        font-size: 14px;
+        height: auto;
+        margin-bottom: 15px;
+        line-height: 1.4;
+    }
+
+    .delem span {
+        font-size: 13px;
+        display: block; /* Agar radio button dan teks rapi per baris */
+        margin-bottom: 8px;
+        line-height: 1.3;
+    }
+
+    .buton {
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+}

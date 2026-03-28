@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.awal{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gainsboro;
+}
+.cac{
+    width: 30%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: rgb(245, 245, 245);
+}
+.calculator{
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.calculator input{
+    width: 100%;
+    height: 18vh;
+    font-size: 45px;
+    font-weight: 500;
+    background-color: chartreuse;
+    padding-left: 10px;
+    border-radius: 10px;
+    border: none;
+}
+.bkscac{
+    width: 90%;
+    height: 75vh;
+}
+.atas{
+    width: 100%;
+    height: 10vh;
+}
+.atas button{
+    width: 100%;
+    height: 10vh;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: rgb(210, 255, 201);
+    border: none;
+    border-radius: 10px;
+}
+.atas button:hover{
+    background-color: black;
+    color: rgb(255, 255, 255);
+}
+.operatorq{
+    width: 100%;
+    height: 11vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.operatorq button{
+    width: 24%;
+    border-radius: 10px;
+    height: 10vh;
+    font-size: 30px;
+    border: none;
+    background-color: rgb(144, 209, 140);
+    font-weight: bold;
+}
+.operatorq button:hover{
+    background-color: black;
+    color: white;
+}
+.operatorq1{
+    width: 100%;
+    height: 11vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3px;
+}
+.operatorq1 button{
+    width: 24%;
+    border-radius: 10px;
+    height: 10vh;
+    font-size: 30px;
+    border: none;
+    background-color: rgb(144, 209, 140);
+    font-weight: bold;
+}
+.operatorq1 button:hover{
+    background-color: black;
+    color: white;
+}
+@media(max-width:667px){
+    .awal{
+        width: 100%;
+    }
+    .cac{
+        width: 90%;
+        height: 85vh;
+    }
+}

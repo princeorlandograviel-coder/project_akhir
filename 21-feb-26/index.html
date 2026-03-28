@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Coin Flip — Tebak Koin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <div class="stats">
+            <span>Menang: <b id="winCount">0</b></span>
+            <span>Kalah: <b id="lossCount">0</b></span>
+        </div>
+
+        <div class="coin-container">
+            <div id="coin" class="coin">
+                <div class="front">🪙</div>
+                <div class="back">👑</div>
+            </div>
+        </div>
+
+        <h2 id="status">Pilih Sisi Koin!</h2>
+
+        <div class="controls">
+            <button onclick="play('Heads')">ANGKA (🪙)</button>
+            <button onclick="play('Tails')">GAMBAR (👑)</button>
+        </div>
+    </div>
+    <script>let wins = 0;
+let losses = 0;
+let isSpinning = false;
+
+function play(userChoice) {
+    if (isSpinning) return;
+    
+    isSpinning = true;
+    const coin = document.getElementById('coin');
+    const status = document.getElementById('status');
+    
+    // Tentukan hasil secara acak (0 = Heads, 1 = Tails)
+    const result = Math.random() < 0.5 ? 'Heads' : 'Tails';
+    
+    // Putaran animasi (acak antara 5-10 putaran)
+    const extraRounds = Math.floor(Math.random() * 5) + 5;
+    const rotation = result === 'Heads' ? extraRounds * 360 : extraRounds * 360 + 180;
+    
+    coin.style.transform = `rotateY(${rotation}deg)`;
+    status.innerText = "Koin berputar...";
+
+    setTimeout(() => {
+        isSpinning = false;
+        if (userChoice === result) {
+            wins++;
+            status.innerText = "🎉 Kamu Menang!";
+            status.style.color = "#4ade80";
+        } else {
+            losses++;
+            status.innerText = "❌ Kamu Kalah!";
+            status.style.color = "#f87171";
+        }
+        
+        document.getElementById('winCount').innerText = wins;
+        document.getElementById('lossCount').innerText = losses;
+    }, 1500); // Harus sama dengan durasi transisi CSS
+}</script>
+</body>
+</html>

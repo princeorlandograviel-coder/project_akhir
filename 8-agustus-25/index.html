@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nilai 4</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/invisible-man.png" type="image/x-icon">
+</head>
+<body>
+    <!-- <h1>Function Operator</h1>
+    <p>Masukan angka 1</p>
+    <input id="angk1" type="number">
+    <p>Masukan angka 2</p>
+    <input id="angk2" type="number">
+    <p>Pilih Operator : </p>
+    <select name="" id="operator">
+        <option value="tambah">Tambah</option>
+        <option value="kurang">Kurang</option>
+        <option value="bagi">Bagi</option>
+        <option value="kali">Kali </option>
+    </select>
+    <p>hasil : <span id="hasil"></span></p>
+    <button onclick="btn()">Hitung</button> -->
+
+    <!-- <script>
+        function  btn(){
+            let angka1 = parseFloat(document.getElementById("angk1").value);
+            let angka2 = parseFloat(document.getElementById("angk2").value);
+            let operator = document.getElementById("operator").value;
+
+            if(operator === "tambah"){
+                let jumlah = angka1 + angka2
+                document.getElementById("hasil").innerHTML = jumlah;
+            }else if(operator === "kurang"){
+                let jumlah = angka1 - angka2
+                document.getElementById("hasil").innerHTML = jumlah;
+            }else if(operator === "bagi"){
+                let jumlah = angka1 / angka2
+                document.getElementById("hasil").innerHTML = jumlah;
+            }else{
+                let jumlah = angka1 * angka2
+                document.getElementById("hasil").innerHTML = jumlah;
+            }
+            
+        }
+    </script> -->
+
+
+
+
+
+
+
+    <div class="utama">
+        <div class="awal">
+        <div class="hsatu">
+            <h1>Calculator Suhu</h1>
+        </div>
+        <div class="hr">
+
+        </div>
+        <div class="selec">
+            <p>Masukan nilai suhu</p>
+    <input id="suhu" type="number"> <select name="" id="perubahan">
+                                        <option value="celcius">Celcius</option>
+                                        <option value="kelvin">Kelvin</option>
+                                        <option value="reamur">Reamur</option>
+                                        <option value="fahreinheit">Fahrenheit</option>
+                                    </select>
+        </div>
+    <div class="selec">
+        <p>Convert</p>
+    <select name="" id="perubahan2">
+        <option value="celcius">Celcius</option>
+        <option value="kelvin">Kelvin</option>
+        <option value="reamur">Reamur</option>
+        <option value="fahreinheit">Fahrenheit</option>
+    </select>
+    </div>
+
+    <div class="hasil">
+        <p>Hasil : <span id="hasil"></span></p>
+    <button onclick="btn()">Hitung</button>
+    </div>
+    </div>
+    </div>
+
+
+    <script>
+        function  btn(){
+            let angk1 = parseFloat(document.getElementById("suhu").value);
+            let perubahan = document.getElementById("perubahan").value;
+            let perubahan2 = document.getElementById("perubahan2").value;
+
+            // celcius
+            if(perubahan === "celcius"&& perubahan2 ==="kelvin"){
+                let jumlah = angk1 + 273
+                document.getElementById("hasil").innerHTML = jumlah;
+            }else if(perubahan === "celcius"&& perubahan2 ==="fahreinheit"){
+                let jumlah = 9/5 * angk1 + 32
+                document.getElementById("hasil").innerHTML = jumlah;
+            }else if(perubahan === "celcius"&& perubahan2 ==="reamur"){
+                let jumlah = 4/5 * angk1
+                document.getElementById("hasil").innerHTML = jumlah;
+            }else if(perubahan === "celcius"&& perubahan2 ==="celcius"){
+                let jumlah = 0+angk1
+                document.getElementById("hasil").innerHTML = jumlah;
+
+            // fahreinheit
+            }else if(perubahan === "fahreinheit"&& perubahan2 ==="celcius"){
+                let jumlah = 5/9 * (angk1 - 32)
+                document.getElementById("hasil").innerHTML = jumlah;
+            }else if(perubahan === "fahreinheit"&& perubahan2 ==="reamur"){
+                let jumlah = (angk1 - 32) * 4/9
+                document.getElementById("hasil").innerHTML = jumlah;
+            }else if(perubahan === "fahreinheit"&& perubahan2 ==="kelvin"){
+                let jumlah = 9/5 * (angk1-273) + 32
+                document.getElementById("hasil").innerHTML = jumlah;
+            }else if(perubahan === "fahreinheit"&& perubahan2 ==="fahreinheit"){
+                let jumlah = 0 + angk1
+                document.getElementById("hasil").innerHTML = jumlah;
+
+            // kelvin
+            }else if(perubahan === "kelvin"&& perubahan2 ==="celcius"){
+                let jumlah = angk1 - 273
+                document.getElementById("hasil").innerHTML = jumlah;
+            }else if(perubahan === "kelvin"&& perubahan2 ==="reamur"){
+                let jumlah = 4/5 * (angk1 - 273)
+                document.getElementById("hasil").innerHTML = jumlah;
+            }else if(perubahan === "kelvin"&& perubahan2 ==="fahreinheit"){
+                let jumlah = (angk1 - 273) * 9/5 + 32
+                document.getElementById("hasil").innerHTML = jumlah;
+            }else if(perubahan === "kelvin"&& perubahan2 ==="kelvin"){
+                let jumlah = 0 + angk1 
+                document.getElementById("hasil").innerHTML = jumlah;
+
+            // reamur
+            }else if(perubahan === "reamur"&& perubahan2 ==="celcius"){
+                let jumlah = angk1 * 5/4
+                document.getElementById("hasil").innerHTML = jumlah;
+            }else if(perubahan === "reamur"&& perubahan2 ==="fahreinheit"){
+                let jumlah = (9/4 * angk1) + 32
+                document.getElementById("hasil").innerHTML = jumlah;
+            }else if(perubahan === "reamur"&& perubahan2 ==="reamur"){
+                let jumlah = 0 + angk1
+                document.getElementById("hasil").innerHTML = jumlah;
+            }else{
+                let jumlah = 5/4 * angk1+273
+                document.getElementById("hasil").innerHTML = jumlah;
+            }
+            
+        }
+    </script>
+</body>
+</html>
