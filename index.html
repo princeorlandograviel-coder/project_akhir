@@ -61,17 +61,17 @@
                 <div class="ats1">
                     <div class="knn1 reveal">
                         <div class="logo"><img src="img/star-svgrepo-com.svg" class="logo-putih"></div>
-                        <div class="rating"><p>4.86</p></div>
-                        <div class="detail"><p>Out of 5 stars from 3896 reviews on Google platform</p></div>
+                        <div class="rating"><p>5.00</p></div>
+                        <div class="detail"><p>Out of 5 stars based on 1 review I wrote myself</p></div>
                     </div>
                     <div class="tgh1 reveal" style="transition-delay:.1s">
                         <div class="logo"><img src="img/test-tube-minimalistic-svgrepo-com.svg" class="logo-putih"></div>
-                        <div class="angka"><p>364</p></div>
-                        <div class="detail"><p>Client testimonials received in the year 2021</p></div>
+                        <div class="angka"><p>5</p></div>
+                        <div class="detail"><p>Client testimonials received in the year 2026</p></div>
                     </div>
                     <div class="kri1 reveal" style="transition-delay:.2s">
                         <div class="logo"><img src="img/search-circle-svgrepo-com.svg" class="logo-putih"></div>
-                        <div class="jmlh"><p>45M+</p></div>
+                        <div class="jmlh"><p>10+</p></div>
                         <div class="detail"><p>Revenue generated through new project & marketing</p></div>
                     </div>
                 </div>
@@ -326,6 +326,7 @@
             </div>
         </div>
 
+        <!-- ═══════════════════════════════════════════ BLOG (5 cards) ═══ -->
         <div class="background6" id="blog">
             <div class="dlm5">
                 <div class="blog-top reveal">
@@ -335,7 +336,10 @@
                     </div>
                     <div class="blog-view-more">View All Articles <span>›</span></div>
                 </div>
+
                 <div class="blog-grid">
+
+                    <!-- Card 1 — Featured (span 2) -->
                     <div class="blog-card blog-featured reveal">
                         <div class="blog-thumb">
                             <div class="blog-art blog-art1">
@@ -359,6 +363,8 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Card 2 -->
                     <div class="blog-card reveal" style="transition-delay:.1s">
                         <div class="blog-thumb">
                             <div class="blog-art blog-art2">
@@ -381,6 +387,8 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Card 3 -->
                     <div class="blog-card reveal" style="transition-delay:.2s">
                         <div class="blog-thumb">
                             <div class="blog-art blog-art3">
@@ -401,7 +409,53 @@
                             </div>
                         </div>
                     </div>
-                </div>
+
+                    <!-- Card 4 — NEW -->
+                    <div class="blog-card reveal" style="transition-delay:.1s">
+                        <div class="blog-thumb">
+                            <div class="blog-art blog-art4">
+                                <div class="perf-art">
+                                    <div class="perf-ring"></div>
+                                    <div class="perf-bolt">⚡</div>
+                                </div>
+                            </div>
+                            <span class="blog-badge badge-performance">Performance</span>
+                        </div>
+                        <div class="blog-body">
+                            <div class="blog-meta"><span>15 Mar 2025</span><div class="blog-dot"></div><span>7 min read</span></div>
+                            <h3>Speed is a feature: why web performance directly impacts your revenue</h3>
+                            <p class="blog-excerpt">Every 100ms of load time costs real money. Learn the exact optimizations — lazy loading, critical CSS, CDN strategy — that brought a client's LCP under 1.2 seconds.</p>
+                            <div class="blog-footer">
+                                <div class="blog-author"><div class="blog-avatar">PR</div><span>Prince Orlando</span></div>
+                                <span class="blog-link">Read more →</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 — NEW -->
+                    <div class="blog-card reveal" style="transition-delay:.2s">
+                        <div class="blog-thumb">
+                            <div class="blog-art blog-art5">
+                                <div class="ds-art">
+                                    <div class="ds-box ds-box1"></div>
+                                    <div class="ds-box ds-box2"></div>
+                                    <div class="ds-box ds-box3"></div>
+                                </div>
+                            </div>
+                            <span class="blog-badge badge-design">Design</span>
+                        </div>
+                        <div class="blog-body">
+                            <div class="blog-meta"><span>22 Jul 2025</span><div class="blog-dot"></div><span>5 min read</span></div>
+                            <h3>Building a design system from scratch: tokens, components, and beyond</h3>
+                            <p class="blog-excerpt">How I structured a scalable design system for a growing startup — from color tokens and typography scales to a full component library that developers actually love using.</p>
+                            <div class="blog-footer">
+                                <div class="blog-author"><div class="blog-avatar">PR</div><span>Prince Orlando</span></div>
+                                <span class="blog-link">Read more →</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /blog-grid -->
             </div>
         </div>
 
@@ -477,7 +531,6 @@
     </div>
 
     <script>
-        /* ── Theme ── */
         const toggleTheme = document.getElementById('toggleTheme');
         const savedTheme = localStorage.getItem('theme') || 'dark-mode';
         if (savedTheme === 'light-mode') document.body.classList.add('light-mode');
@@ -487,7 +540,6 @@
             localStorage.setItem('theme', isLight ? 'light-mode' : 'dark-mode');
         });
 
-        /* ── Navbar scroll ── */
         window.addEventListener('scroll', function () {
             const nav = document.getElementById('navbar');
             const isLight = document.body.classList.contains('light-mode');
@@ -502,7 +554,6 @@
             }
         });
 
-        /* ── Hamburger ── */
         const hamburger = document.getElementById('hamburger');
         const navMenu   = document.getElementById('navMenu');
         hamburger.addEventListener('click', function () {
@@ -516,7 +567,6 @@
             });
         });
 
-        /* ── Reveal on scroll ── */
         const revealEls = document.querySelectorAll('.reveal');
         const revealObserver = new IntersectionObserver(
             (entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); },
@@ -524,7 +574,6 @@
         );
         revealEls.forEach(el => revealObserver.observe(el));
 
-        /* ── Portfolio filter ── */
         const filterBtns = document.querySelectorAll('.filter-btn');
         filterBtns.forEach(btn => {
             btn.addEventListener('click', function () {
@@ -555,7 +604,6 @@
             });
         });
 
-        /* ── View all toggle ── */
         let showingAll = false;
         document.getElementById('viewAllBtn').addEventListener('click', function () {
             showingAll = !showingAll;
@@ -580,7 +628,6 @@
             document.getElementById('viewAllArrow').textContent = showingAll ? '↑' : '↓';
         });
 
-        /* ── Testimonial Carousel ── */
         (function () {
             const track  = document.getElementById('testiTrack');
             const slides = track.querySelectorAll('.testi-slide');
@@ -615,6 +662,48 @@
             }
             reset();
         })();
+        const navLinks = document.querySelectorAll('.tengah a[href^="#"]');
+        const sections = [...navLinks]
+            .map(a => document.querySelector(a.getAttribute('href')))
+            .filter(Boolean);
+
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(a => a.classList.remove('nav-active'));
+                    const active = document.querySelector(`.tengah a[href="#${entry.target.id}"]`);
+                    if (active) active.classList.add('nav-active');
+                }
+            });
+        }, { 
+            threshold: 0,
+            rootMargin: '-60px 0px -50% 0px'
+        });
+
+        sections.forEach(s => navObserver.observe(s));
+
+        const fills = document.querySelectorAll('.fill');
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('animated');
+                    skillObserver.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.4 });
+        fills.forEach(f => skillObserver.observe(f));
+
+        const btt = document.createElement('button');
+        btt.className = 'back-to-top';
+        btt.innerHTML = '↑';
+        btt.title = 'Back to top';
+        btt.setAttribute('aria-label', 'Back to top');
+        btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        document.body.appendChild(btt);
+
+        window.addEventListener('scroll', () => {
+            btt.classList.toggle('visible', window.scrollY > 400);
+        }, { passive: true });
     </script>
 </body>
 </html>
